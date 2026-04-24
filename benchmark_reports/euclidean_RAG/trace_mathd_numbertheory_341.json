@@ -1,0 +1,60 @@
+{
+  "problem_name": "mathd_numbertheory_341",
+  "category": "Test",
+  "status": "Success",
+  "strategy": "Solver-First",
+  "time_sec": 435.5181,
+  "steps": 1,
+  "nodes_expanded": 0,
+  "error_type": "None",
+  "proof_trace": "aesop",
+  "error_detail": "",
+  "raw_result": {
+    "status": "Success",
+    "proof": [
+      "aesop"
+    ],
+    "trace": [
+      {
+        "stage": "goal_classification",
+        "goal": "\u2115)\n  (h\u2080 : a \u2264 9 \u2227 b \u2264 9 \u2227 c \u2264 9)\n  (h\u2081 : Nat.digits 10 ((5^100) % 1000) = [c,b,a]) :\n  a + b + c = 13",
+        "decision": "searchable"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "native_decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "norm_num",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "simp",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "linarith",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "ring",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "aesop",
+        "status": "success"
+      }
+    ]
+  }
+}

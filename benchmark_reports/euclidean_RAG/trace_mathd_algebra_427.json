@@ -1,0 +1,50 @@
+{
+  "problem_name": "mathd_algebra_427",
+  "category": "Test",
+  "status": "Success",
+  "strategy": "Solver-First",
+  "time_sec": 410.46,
+  "steps": 1,
+  "nodes_expanded": 0,
+  "error_type": "None",
+  "proof_trace": "linarith",
+  "error_detail": "",
+  "raw_result": {
+    "status": "Success",
+    "proof": [
+      "linarith"
+    ],
+    "trace": [
+      {
+        "stage": "goal_classification",
+        "goal": "\u211d)\n  (h\u2080 : 3 * x + y = 17)\n  (h\u2081 : 5 * y + z = 14)\n  (h\u2082 : 3 * x + 5 * z = 41) :\n  x + y + z = 12",
+        "decision": "searchable"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "native_decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "norm_num",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "simp",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "linarith",
+        "status": "success"
+      }
+    ]
+  }
+}

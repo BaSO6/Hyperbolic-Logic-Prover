@@ -1,0 +1,60 @@
+{
+  "problem_name": "mathd_numbertheory_135",
+  "category": "Test",
+  "status": "Success",
+  "strategy": "Solver-First",
+  "time_sec": 435.3863,
+  "steps": 1,
+  "nodes_expanded": 0,
+  "error_type": "None",
+  "proof_trace": "aesop",
+  "error_detail": "",
+  "raw_result": {
+    "status": "Success",
+    "proof": [
+      "aesop"
+    ],
+    "trace": [
+      {
+        "stage": "goal_classification",
+        "goal": "\u2115)\n  (h\u2080 : n = 3^17 + 3^10)\n  (h\u2081 : 11 \u2223 (n + 1))\n  (h\u2082 : [A,B,C].Pairwise (\u00b7\u2260\u00b7))\n  (h\u2083 : {A,B,C} \u2282 Finset.Icc 0 9)\n  (h\u2084 : Odd A \u2227 Odd C)\n  (h\u2085 : \u00ac 3 \u2223 B)\n  (h\u2086 : Nat.digits 10 n = [B,A,B,C,C,A,C,B,A]) :\n  100 * A + 10 * B + C = 129",
+        "decision": "searchable"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "native_decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "norm_num",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "simp",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "linarith",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "ring",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "aesop",
+        "status": "success"
+      }
+    ]
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "problem_name": "mathd_numbertheory_430",
+  "category": "Test",
+  "status": "Failed",
+  "strategy": "Unknown",
+  "time_sec": 435.8155,
+  "steps": 0,
+  "nodes_expanded": 1,
+  "error_type": "SearchExhausted",
+  "proof_trace": "",
+  "error_detail": "",
+  "raw_result": {
+    "status": "Failed",
+    "proof": null,
+    "trace": [
+      {
+        "stage": "goal_classification",
+        "goal": "\u2115)\n  (h\u2080 : 1 \u2264 a \u2227 a \u2264 9)\n  (h\u2081 : 1 \u2264 b \u2227 b \u2264 9)\n  (h\u2082 : 1 \u2264 c \u2227 c \u2264 9)\n  (h\u2083 : a \u2260 b)\n  (h\u2084 : a \u2260 c)\n  (h\u2085 : b \u2260 c)\n  (h\u2086 : a + b = c)\n  (h\u2087 : 10 * a + a - b = 2 * c)\n  (h\u2088 : c * b = 10 * a + a + a) :\n  a + b + c = 8",
+        "decision": "searchable"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "native_decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "norm_num",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "simp",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "linarith",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "ring",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "aesop",
+        "status": "continue"
+      },
+      {
+        "stage": "expand",
+        "depth": 0,
+        "goal": "\u2115)\n  (h\u2080 : 1 \u2264 a \u2227 a \u2264 9)\n  (h\u2081 : 1 \u2264 b \u2227 b \u2264 9)\n  (h\u2082 : 1 \u2264 c \u2227 c \u2264 9)\n  (h\u2083 : a \u2260 b)\n  (h\u2084 : a \u2260 c)\n  (h\u2085 : b \u2260 c)\n  (h\u2086 : a + b = c)\n  (h\u2087 : 10 * a + a - b = 2 * c)\n  (h\u2088 : c * b = 10 * a + a + a) :\n  a + b + c = 8"
+      }
+    ]
+  }
+}

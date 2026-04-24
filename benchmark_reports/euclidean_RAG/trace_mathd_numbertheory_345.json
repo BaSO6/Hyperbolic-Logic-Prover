@@ -1,0 +1,30 @@
+{
+  "problem_name": "mathd_numbertheory_345",
+  "category": "Test",
+  "status": "Success",
+  "strategy": "Solver-First",
+  "time_sec": 370.2653,
+  "steps": 1,
+  "nodes_expanded": 0,
+  "error_type": "None",
+  "proof_trace": "decide",
+  "error_detail": "",
+  "raw_result": {
+    "status": "Success",
+    "proof": [
+      "decide"
+    ],
+    "trace": [
+      {
+        "stage": "goal_classification",
+        "goal": "(2000 + 2001 + 2002 + 2003 + 2004 + 2005 + 2006) % 7 = 0",
+        "decision": "searchable"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "decide",
+        "status": "success"
+      }
+    ]
+  }
+}

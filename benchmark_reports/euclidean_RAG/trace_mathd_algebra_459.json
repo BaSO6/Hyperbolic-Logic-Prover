@@ -1,0 +1,63 @@
+{
+  "problem_name": "mathd_algebra_459",
+  "category": "Test",
+  "status": "Failed",
+  "strategy": "Unknown",
+  "time_sec": 437.1224,
+  "steps": 0,
+  "nodes_expanded": 1,
+  "error_type": "SearchExhausted",
+  "proof_trace": "",
+  "error_detail": "",
+  "raw_result": {
+    "status": "Failed",
+    "proof": null,
+    "trace": [
+      {
+        "stage": "goal_classification",
+        "goal": "\u211a)\n  (h\u2080 : 3 * a = b + c + d)\n  (h\u2081 : 4 * b = a + c + d)\n  (h\u2082 : 2 * c = a + b + d)\n  (h\u2083 : 8 * a + 10 * b + 6 * c = 24) :\n  \u2191d.den + d.num = 28",
+        "decision": "searchable"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "native_decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "norm_num",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "simp",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "linarith",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "ring",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "aesop",
+        "status": "continue"
+      },
+      {
+        "stage": "expand",
+        "depth": 0,
+        "goal": "\u211a)\n  (h\u2080 : 3 * a = b + c + d)\n  (h\u2081 : 4 * b = a + c + d)\n  (h\u2082 : 2 * c = a + b + d)\n  (h\u2083 : 8 * a + 10 * b + 6 * c = 24) :\n  \u2191d.den + d.num = 28"
+      }
+    ]
+  }
+}

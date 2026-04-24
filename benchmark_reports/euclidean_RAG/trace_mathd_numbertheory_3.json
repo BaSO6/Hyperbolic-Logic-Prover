@@ -1,0 +1,30 @@
+{
+  "problem_name": "mathd_numbertheory_3",
+  "category": "Test",
+  "status": "Success",
+  "strategy": "Solver-First",
+  "time_sec": 370.1119,
+  "steps": 1,
+  "nodes_expanded": 0,
+  "error_type": "None",
+  "proof_trace": "decide",
+  "error_detail": "",
+  "raw_result": {
+    "status": "Success",
+    "proof": [
+      "decide"
+    ],
+    "trace": [
+      {
+        "stage": "goal_classification",
+        "goal": "(\u2211 x \u2208 Finset.range 10, ((x + 1)^2)) % 10 = 5",
+        "decision": "searchable"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "decide",
+        "status": "success"
+      }
+    ]
+  }
+}

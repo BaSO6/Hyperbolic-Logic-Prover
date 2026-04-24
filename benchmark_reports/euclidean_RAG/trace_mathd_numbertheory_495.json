@@ -1,0 +1,63 @@
+{
+  "problem_name": "mathd_numbertheory_495",
+  "category": "Test",
+  "status": "Failed",
+  "strategy": "Unknown",
+  "time_sec": 436.481,
+  "steps": 0,
+  "nodes_expanded": 1,
+  "error_type": "SearchExhausted",
+  "proof_trace": "",
+  "error_detail": "",
+  "raw_result": {
+    "status": "Failed",
+    "proof": null,
+    "trace": [
+      {
+        "stage": "goal_classification",
+        "goal": "\u2115)\n  (h\u2080 : 0 < a \u2227 0 < b)\n  (h\u2081 : a % 10 = 2)\n  (h\u2082 : b % 10 = 4)\n  (h\u2083 : Nat.gcd a b = 6) :\n  108 \u2264 Nat.lcm a b",
+        "decision": "searchable"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "native_decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "norm_num",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "simp",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "linarith",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "ring",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "aesop",
+        "status": "continue"
+      },
+      {
+        "stage": "expand",
+        "depth": 0,
+        "goal": "\u2115)\n  (h\u2080 : 0 < a \u2227 0 < b)\n  (h\u2081 : a % 10 = 2)\n  (h\u2082 : b % 10 = 4)\n  (h\u2083 : Nat.gcd a b = 6) :\n  108 \u2264 Nat.lcm a b"
+      }
+    ]
+  }
+}

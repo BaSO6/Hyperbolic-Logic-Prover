@@ -1,0 +1,30 @@
+{
+  "problem_name": "mathd_numbertheory_769",
+  "category": "Test",
+  "status": "Success",
+  "strategy": "Solver-First",
+  "time_sec": 370.2229,
+  "steps": 1,
+  "nodes_expanded": 0,
+  "error_type": "None",
+  "proof_trace": "decide",
+  "error_detail": "",
+  "raw_result": {
+    "status": "Success",
+    "proof": [
+      "decide"
+    ],
+    "trace": [
+      {
+        "stage": "goal_classification",
+        "goal": "(129^34 + 96^38) % 11 = 9",
+        "decision": "searchable"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "decide",
+        "status": "success"
+      }
+    ]
+  }
+}

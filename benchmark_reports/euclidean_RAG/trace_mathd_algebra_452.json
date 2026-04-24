@@ -1,0 +1,63 @@
+{
+  "problem_name": "mathd_algebra_452",
+  "category": "Test",
+  "status": "Failed",
+  "strategy": "Unknown",
+  "time_sec": 436.9457,
+  "steps": 0,
+  "nodes_expanded": 1,
+  "error_type": "SearchExhausted",
+  "proof_trace": "",
+  "error_detail": "",
+  "raw_result": {
+    "status": "Failed",
+    "proof": null,
+    "trace": [
+      {
+        "stage": "goal_classification",
+        "goal": "\u2115 \u2192 \u211d)\n  (h\u2080 : \u2200 n, a (n + 2) - a (n + 1) = a (n + 1) - a n)\n  (h\u2081 : a 1 = 2 / 3)\n  (h\u2082 : a 9 = 4 / 5) :\n  a 5 = 11 / 15",
+        "decision": "searchable"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "native_decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "norm_num",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "simp",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "linarith",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "ring",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "aesop",
+        "status": "continue"
+      },
+      {
+        "stage": "expand",
+        "depth": 0,
+        "goal": "\u2115 \u2192 \u211d)\n  (h\u2080 : \u2200 n, a (n + 2) - a (n + 1) = a (n + 1) - a n)\n  (h\u2081 : a 1 = 2 / 3)\n  (h\u2082 : a 9 = 4 / 5) :\n  a 5 = 11 / 15"
+      }
+    ]
+  }
+}

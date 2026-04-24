@@ -1,0 +1,30 @@
+{
+  "problem_name": "mathd_numbertheory_12",
+  "category": "Test",
+  "status": "Success",
+  "strategy": "Solver-First",
+  "time_sec": 370.2926,
+  "steps": 1,
+  "nodes_expanded": 0,
+  "error_type": "None",
+  "proof_trace": "decide",
+  "error_detail": "",
+  "raw_result": {
+    "status": "Success",
+    "proof": [
+      "decide"
+    ],
+    "trace": [
+      {
+        "stage": "goal_classification",
+        "goal": "Finset.card (Finset.filter (\u03bb x => 20\u2223x) (Finset.Icc 15 85)) = 4",
+        "decision": "searchable"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "decide",
+        "status": "success"
+      }
+    ]
+  }
+}
