@@ -547,7 +547,7 @@ The benchmark intentionally excludes `_manual_mathlib/`.
 ```bibtex
 @misc{hyperbolic-logic-prover-2025,
   title  = {Hyperbolic Lie Prover: Hierarchical Reasoning for Logical Inference via Lie Group Dynamics},
-  author = {Beibei Liu, Junchi Yan},
+  author = {Beibei Liu},
   year   = {2026},
   url    = {https://github.com/BaSO6/Hyperbolic-Logic-Prover}
 }
