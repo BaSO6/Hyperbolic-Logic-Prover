@@ -1,0 +1,60 @@
+{
+  "problem_name": "mathd_algebra_275",
+  "category": "Test",
+  "status": "Success",
+  "strategy": "Solver-First",
+  "time_sec": 435.5932,
+  "steps": 1,
+  "nodes_expanded": 0,
+  "error_type": "None",
+  "proof_trace": "aesop",
+  "error_detail": "",
+  "raw_result": {
+    "status": "Success",
+    "proof": [
+      "aesop"
+    ],
+    "trace": [
+      {
+        "stage": "goal_classification",
+        "goal": "\u211d)\n  (h : ((11:\u211d)^(1 / 4))^(3 * x - 3) = 1 / 5) :\n  ((11:\u211d)^(1 / 4))^(6 * x + 2) = 121 / 25",
+        "decision": "searchable"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "native_decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "norm_num",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "simp",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "linarith",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "ring",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "aesop",
+        "status": "success"
+      }
+    ]
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "problem_name": "mathd_algebra_184",
+  "category": "Test",
+  "status": "Failed",
+  "strategy": "Unknown",
+  "time_sec": 440.3158,
+  "steps": 0,
+  "nodes_expanded": 1,
+  "error_type": "SearchExhausted",
+  "proof_trace": "",
+  "error_detail": "",
+  "raw_result": {
+    "status": "Failed",
+    "proof": null,
+    "trace": [
+      {
+        "stage": "goal_classification",
+        "goal": "NNReal)\n  (h\u2080 : 0 < a \u2227 0 < b)\n  (h\u2081 : (a^2) = 6*b)\n  (h\u2082 : (a^2) = 54/b) :\n  a = 3 * NNReal.sqrt 2",
+        "decision": "searchable"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "native_decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "norm_num",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "simp",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "linarith",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "ring",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "aesop",
+        "status": "continue"
+      },
+      {
+        "stage": "expand",
+        "depth": 0,
+        "goal": "NNReal)\n  (h\u2080 : 0 < a \u2227 0 < b)\n  (h\u2081 : (a^2) = 6*b)\n  (h\u2082 : (a^2) = 54/b) :\n  a = 3 * NNReal.sqrt 2"
+      }
+    ]
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "problem_name": "mathd_algebra_209",
+  "category": "Test",
+  "status": "Failed",
+  "strategy": "Unknown",
+  "time_sec": 435.8435,
+  "steps": 0,
+  "nodes_expanded": 1,
+  "error_type": "SearchExhausted",
+  "proof_trace": "",
+  "error_detail": "",
+  "raw_result": {
+    "status": "Failed",
+    "proof": null,
+    "trace": [
+      {
+        "stage": "goal_classification",
+        "goal": "Equiv \u211d \u211d)\n  (h\u2080 : \u03c3.2 2 = 10)\n  (h\u2081 : \u03c3.2 10 = 1)\n  (h\u2082 : \u03c3.2 1 = 2) :\n  \u03c3.1 (\u03c3.1 10) = 1",
+        "decision": "searchable"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "native_decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "norm_num",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "simp",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "linarith",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "ring",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "aesop",
+        "status": "continue"
+      },
+      {
+        "stage": "expand",
+        "depth": 0,
+        "goal": "Equiv \u211d \u211d)\n  (h\u2080 : \u03c3.2 2 = 10)\n  (h\u2081 : \u03c3.2 10 = 1)\n  (h\u2082 : \u03c3.2 1 = 2) :\n  \u03c3.1 (\u03c3.1 10) = 1"
+      }
+    ]
+  }
+}

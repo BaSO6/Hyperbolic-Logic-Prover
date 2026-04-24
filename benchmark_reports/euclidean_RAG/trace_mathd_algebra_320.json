@@ -1,0 +1,63 @@
+{
+  "problem_name": "mathd_algebra_320",
+  "category": "Test",
+  "status": "Failed",
+  "strategy": "Unknown",
+  "time_sec": 436.5922,
+  "steps": 0,
+  "nodes_expanded": 1,
+  "error_type": "SearchExhausted",
+  "proof_trace": "",
+  "error_detail": "",
+  "raw_result": {
+    "status": "Failed",
+    "proof": null,
+    "trace": [
+      {
+        "stage": "goal_classification",
+        "goal": "\u211d)\n  (a b c : \u2115)\n  (h\u2080 : 0 < a \u2227 0 < b \u2227 0 < c \u2227 0 \u2264 x)\n  (h\u2081 : 2 * x^2 = 4 * x + 9)\n  (h\u2082 : x = (a + Real.sqrt b) / c)\n  (h\u2083 : c = 2) :\n  a + b + c = 26",
+        "decision": "searchable"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "native_decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "norm_num",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "simp",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "linarith",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "ring",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "aesop",
+        "status": "continue"
+      },
+      {
+        "stage": "expand",
+        "depth": 0,
+        "goal": "\u211d)\n  (a b c : \u2115)\n  (h\u2080 : 0 < a \u2227 0 < b \u2227 0 < c \u2227 0 \u2264 x)\n  (h\u2081 : 2 * x^2 = 4 * x + 9)\n  (h\u2082 : x = (a + Real.sqrt b) / c)\n  (h\u2083 : c = 2) :\n  a + b + c = 26"
+      }
+    ]
+  }
+}
