@@ -1,0 +1,419 @@
+{
+    "algebraic_commutativity": {
+        "label": "Commutativity",
+        "description": "Operations where order doesn't matter",
+        "tactic_suggestion": "rw [Nat.add_comm] or rw [Nat.mul_comm]",
+        "key_lemmas": [
+            "add_comm",
+            "mul_comm"
+        ]
+    },
+    "algebraic_associativity": {
+        "label": "Associativity",
+        "description": "Grouping of operations doesn't matter",
+        "tactic_suggestion": "rw [Nat.add_assoc] or rw [Nat.mul_assoc]",
+        "key_lemmas": [
+            "add_assoc",
+            "mul_assoc"
+        ]
+    },
+    "algebraic_left_comm": {
+        "label": "Left Commutativity",
+        "description": "Commutativity with leftmost element fixed",
+        "tactic_suggestion": "rw [Nat.add_left_comm]",
+        "key_lemmas": [
+            "add_left_comm"
+        ]
+    },
+    "algebraic_algebraic_simplify": {
+        "label": "Algebraic Simplification",
+        "description": "General algebraic simplification",
+        "tactic_suggestion": "ring or simp [add_comm, add_assoc]",
+        "key_lemmas": []
+    },
+    "0.1.1.0": {
+        "label": "Algebraic",
+        "description": "The core mathematical transformation in these examples is algebraic in nature. We see the application of algebraic properties like commutativity, associativity, and distributivity.",
+        "tactic_suggestion": "The suggested tactic for these transformations is `simp`.",
+        "key_lemmas": [
+            "card_mul_pow_le",
+            "derivative_bit1"
+        ]
+    },
+    "0.0.0.1": {
+        "label": "Algebraic",
+        "description": "The core mathematical transformation in these examples is algebraic in nature. We see the use of algebraic properties like commutativity, associativity, and distributivity, as well as equation rewriting patterns.",
+        "tactic_suggestion": "The suggested tactic for these transformations is `simp`.",
+        "key_lemmas": [
+            "divp_divp_eq_divp_mul",
+            "QuotientAddGroup.equivIcoMod_coe",
+            "isLUB_of_u_image"
+        ]
+    },
+    "0.2.1.1": {
+        "label": "Algebraic",
+        "description": "The core mathematical transformation in these examples is algebraic in nature. We are using algebraic properties like commutativity, associativity, and distributivity to manipulate expressions.",
+        "tactic_suggestion": "The recommended Lean tactic for these transformations is `ring`.",
+        "key_lemmas": [
+            "inv_coe_int_num",
+            "Convex.translate_preimage_left",
+            "flag_le_ker_coord"
+        ]
+    },
+    "0.0.3.2": {
+        "label": "Algebraic",
+        "description": "In these examples, we are dealing with algebraic properties and equations. The main algebraic property used is commutativity, which states that the order of multiplication does not matter. The rewrite tactic is used to simplify equations by applying algebraic properties.",
+        "tactic_suggestion": "rw",
+        "key_lemmas": [
+            "convexJoin_iUnion_right",
+            "augment_d_one_zero"
+        ]
+    },
+    "0.3.0.1": {
+        "label": "Algebraic",
+        "description": "The core mathematical transformation in these examples is algebraic in nature. We see the use of algebraic properties like commutativity, associativity, and distributivity to simplify expressions or rearrange equations.",
+        "tactic_suggestion": "The Lean tactic for algebraic manipulation is `ring`.",
+        "key_lemmas": [
+            "commutativity",
+            "associativity",
+            "distributivity"
+        ]
+    },
+    "0.0.3.0": {
+        "label": "Algebraic",
+        "description": "The core mathematical transformation in these examples is algebraic in nature. We see the use of algebraic properties like commutativity, associativity, and distributivity, as well as equation rewriting patterns.",
+        "tactic_suggestion": "The recommended Lean tactic for these transformations is `simp`.",
+        "key_lemmas": [
+            "arg_mem_Ioc",
+            "unop_one",
+            "exists_cycleOn"
+        ]
+    },
+    "0.2.1.3": {
+        "label": "Algebraic",
+        "description": "In this cluster, we see algebraic properties and equation rewriting patterns. The main tactic used is `simp`.",
+        "tactic_suggestion": "`simp`",
+        "key_lemmas": [
+            "lpTrimToLpMeasSubgroup_ae_eq",
+            "dom_mk"
+        ]
+    },
+    "0.3.0.0": {
+        "label": "Algebraic",
+        "description": "The core mathematical transformation in these examples is algebraic in nature. We see the application of algebraic properties like commutativity, associativity, and distributivity.",
+        "tactic_suggestion": "The recommended Lean tactic for these transformations is `simp`.",
+        "key_lemmas": [
+            "disjoint_partialSups_right",
+            "C0_projOrd",
+            "set_lintegral_pdf_le_map"
+        ]
+    },
+    "0.1.2.1": {
+        "label": "Algebraic",
+        "description": "In these examples, we are using algebraic properties and manipulations to prove theorems. We are using the `ring` tactic to simplify expressions and prove that both sides of an equation are equal.",
+        "tactic_suggestion": "`ring`",
+        "key_lemmas": [
+            "`coeff_zero_eq_aeval_zero`",
+            "`mul_lt_mul_left`"
+        ]
+    },
+    "0.2.1.2": {
+        "label": "Algebraic",
+        "description": "These examples involve algebraic properties and equation rewriting. The core transformation is often based on algebraic manipulation, such as associativity, commutativity, or distributivity.",
+        "tactic_suggestion": "The suggested tactic for these examples is `ring`.",
+        "key_lemmas": [
+            "ring_comm",
+            "ring_distrib"
+        ]
+    },
+    "0.1.1.3": {
+        "label": "Algebraic Manipulation",
+        "description": "Cluster 0.1.1.3: Algebraic Manipulation",
+        "tactic_suggestion": "rw",
+        "key_lemmas": []
+    },
+    "0.0.0.2": {
+        "label": "Algebraic",
+        "description": "The core mathematical transformation in these examples is algebraic in nature. We see the application of algebraic properties like commutativity, associativity, and distributivity.",
+        "tactic_suggestion": "The recommended Lean tactic for these transformations is `simp`.",
+        "key_lemmas": [
+            "IsSquare.div",
+            "snd_lineMap",
+            "X_def"
+        ]
+    },
+    "0.3.0.2": {
+        "label": "Algebraic Manipulation",
+        "description": "Cluster 0.3.0.2: Algebraic Manipulation",
+        "tactic_suggestion": "rw",
+        "key_lemmas": []
+    },
+    "0.3.0.3": {
+        "label": "Algebraic",
+        "description": "In these examples, we are dealing with algebraic properties and equation rewriting. The core mathematical transformation is often based on algebraic manipulation, such as associativity, commutativity, and distributivity of operations.",
+        "tactic_suggestion": "The recommended Lean tactic for these transformations is `simp`.",
+        "key_lemmas": [
+            "eventually_measure_le_scaling_constant_mul",
+            "closedBall_smul_ball",
+            "schnirelmannDensity_le_one"
+        ]
+    },
+    "0.3.3.0": {
+        "label": "Algebraic",
+        "description": "These examples involve algebraic properties like commutativity, associativity, and distributivity.",
+        "tactic_suggestion": "The suggested tactic for these examples is 'simp'.",
+        "key_lemmas": [
+            "commutativity",
+            "associativity",
+            "distributivity"
+        ]
+    },
+    "0.1.1.1": {
+        "label": "Algebraic",
+        "description": "These examples demonstrate algebraic transformations, such as applying algebraic properties (commutativity, associativity, distributivity) and using algebraic lemmas.",
+        "tactic_suggestion": "The suggested tactic for these examples is `simp` with the `algebra` attribute.",
+        "key_lemmas": [
+            "Set.coe_setOf",
+            "botEquiv",
+            "algebraicIndependent_image",
+            "inftyNormedAlgebra",
+            "decidableEq_inl_refl"
+        ]
+    },
+    "0.3.1.1": {
+        "label": "Algebraic Manipulation",
+        "description": "Cluster 0.3.1.1: Algebraic Manipulation",
+        "tactic_suggestion": "rw",
+        "key_lemmas": []
+    },
+    "0.1.3.1": {
+        "label": "Algebraic",
+        "description": "The core mathematical transformation in these examples is algebraic in nature. We are using algebraic properties like commutativity, associativity, and distributivity to manipulate equations and expressions.",
+        "tactic_suggestion": "The recommended Lean tactic for this kind of transformation is `ring`.",
+        "key_lemmas": [
+            "mk_Ioc_real",
+            "smul_injective",
+            "logb_le_iff_le_rpow"
+        ]
+    },
+    "0.0.2.1": {
+        "label": "Algebraic",
+        "description": "The core mathematical transformation in these examples is algebraic in nature. We see the application of algebraic properties like commutativity, associativity, and distributivity.",
+        "tactic_suggestion": "The recommended Lean tactic for these transformations is `simp`.",
+        "key_lemmas": [
+            "prod_hom_add_index",
+            "sum_boole"
+        ]
+    },
+    "0.1.1.2": {
+        "label": "Algebraic Manipulation",
+        "description": "Cluster 0.1.1.2: Algebraic Manipulation",
+        "tactic_suggestion": "rw",
+        "key_lemmas": []
+    },
+    "0.2.2.1": {
+        "label": "Algebraic",
+        "description": "These examples demonstrate algebraic transformations involving logical equivalences, equalities, and properties of operations like intersection and union.",
+        "tactic_suggestion": "The suggested tactic for these transformations is `rw` or `simp` with appropriate lemmas.",
+        "key_lemmas": [
+            "rat_cast_eq",
+            "pullbackFst_eq_pullback_snd",
+            "KernelFork.IsLimit.isIso_\u03b9"
+        ]
+    },
+    "0.1.0.0": {
+        "label": "Algebraic",
+        "description": "In these examples, we are dealing with algebraic properties and structures. The main transformation involves applying algebraic identities and properties to simplify expressions or prove theorems.",
+        "tactic_suggestion": "The suggested tactic for this category is 'simp'.",
+        "key_lemmas": [
+            "natCast_mem_one",
+            "nilpotent_iff_lowerCentralSeries"
+        ]
+    },
+    "0.2.0.2": {
+        "label": "Algebraic Manipulation",
+        "description": "Cluster 0.2.0.2: Algebraic Manipulation",
+        "tactic_suggestion": "rw",
+        "key_lemmas": []
+    },
+    "0.0.1.0": {
+        "label": "Algebraic",
+        "description": "The core mathematical transformation in these examples is algebraic in nature. We see the use of algebraic properties like commutativity, associativity, and distributivity.",
+        "tactic_suggestion": "The recommended Lean tactic for these transformations is `simp`.",
+        "key_lemmas": [
+            "commutativity",
+            "associativity",
+            "distributivity"
+        ]
+    },
+    "0.3.2.1": {
+        "label": "Algebraic",
+        "description": "In this cluster, we see algebraic properties and equation rewriting patterns in the Lean Mathlib code. The main algebraic property used is commutativity, and the main equation rewriting pattern is applying a function to both sides of an equation.",
+        "tactic_suggestion": "The recommended tactic for this transformation is `simp`.",
+        "key_lemmas": [
+            "commute_map_mul_map_of_isOrtho_of_mem_evenOdd_zero_right"
+        ]
+    },
+    "0.3.3.1": {
+        "label": "Algebraic",
+        "description": "The core mathematical transformation in these examples is algebraic in nature. We see the application of algebraic properties like commutativity, associativity, and distributivity, as well as the use of equation rewriting patterns. The Lean tactic 'simp' is a good choice for these transformations, as it simplifies expressions based on algebraic properties.",
+        "tactic_suggestion": "`simp`",
+        "key_lemmas": [
+            "fst_prodMkLeft",
+            "IsIntegral.of_mem_closure"
+        ]
+    },
+    "0.2.2.0": {
+        "label": "Algebraic",
+        "description": "The core mathematical transformation in these examples is algebraic in nature. We are applying algebraic properties like commutativity, associativity, and distributivity to simplify expressions or prove equalities.",
+        "tactic_suggestion": "The recommended Lean tactic for this kind of transformation is `simp`.",
+        "key_lemmas": [
+            "map_add_right_Icc",
+            "symm_mul"
+        ]
+    },
+    "0.2.1.0": {
+        "label": "Algebraic",
+        "description": "In these examples, we are dealing with algebraic properties and equation rewriting. The main algebraic property used is associativity, which allows us to rearrange the order of operations without changing the result. The tactic used for these transformations is `simp`.",
+        "tactic_suggestion": "`simp`",
+        "key_lemmas": [
+            "`le_nhds_of_str_eq`",
+            "`tendsto_nhds_top_mono`"
+        ]
+    },
+    "0.2.0.1": {
+        "label": "Algebraic Manipulation",
+        "description": "Cluster 0.2.0.1: Algebraic Manipulation",
+        "tactic_suggestion": "rw",
+        "key_lemmas": []
+    },
+    "0.2.3.1": {
+        "label": "Algebraic",
+        "description": "The core mathematical transformation in these examples is algebraic in nature. We see the application of algebraic properties like commutativity, associativity, and distributivity.",
+        "tactic_suggestion": "The recommended Lean tactic for these transformations is `simp`.",
+        "key_lemmas": [
+            "comm_ring.mul_comm",
+            "add_assoc",
+            "mul_assoc",
+            "mul_add",
+            "add_mul"
+        ]
+    },
+    "0.2.3.0": {
+        "label": "Algebraic",
+        "description": "The core mathematical transformation in these examples is algebraic in nature. We see the application of algebraic properties like commutativity, associativity, and distributivity.",
+        "tactic_suggestion": "The recommended Lean tactic for these transformations is `simp`.",
+        "key_lemmas": [
+            "mem_aux",
+            "inl_apply"
+        ]
+    },
+    "0.1.2.0": {
+        "label": "Algebraic",
+        "description": "The core mathematical transformation in these examples is algebraic in nature. We see the application of algebraic properties like commutativity, associativity, and distributivity.",
+        "tactic_suggestion": "The recommended Lean tactic for these transformations is `simp`.",
+        "key_lemmas": [
+            "AEMeasurable.const_mul",
+            "Continuous.map_borel_eq",
+            "quotKerEquivRange"
+        ]
+    },
+    "0.3.2.0": {
+        "label": "Algebraic",
+        "description": "The core mathematical transformation in these examples is algebraic in nature. We are using algebraic properties like commutativity, associativity, and distributivity to manipulate expressions and equations.",
+        "tactic_suggestion": "The recommended Lean tactic for this kind of transformation is `ring`.",
+        "key_lemmas": [
+            "commutativity",
+            "associativity",
+            "distributivity"
+        ]
+    },
+    "0.0.2.0": {
+        "label": "Algebraic",
+        "description": "The core mathematical transformation in these examples is algebraic in nature. We are using algebraic properties like commutativity, associativity, and distributivity to simplify expressions or prove equalities.",
+        "tactic_suggestion": "The suggested tactic for this category is `simp`.",
+        "key_lemmas": [
+            "natDegree_polynomial",
+            "foldr_map"
+        ]
+    },
+    "0.0.3.3": {
+        "label": "Algebraic",
+        "description": "The core mathematical transformation in these examples is algebraic in nature. The theorems and lemmas involve algebraic operations like addition, multiplication, and exponentiation, as well as properties like commutativity, associativity, and distributivity.",
+        "tactic_suggestion": "The recommended Lean tactic for these algebraic transformations is 'simp'.",
+        "key_lemmas": [
+            "Unknown",
+            "lift_lift_apply",
+            "reflect_support"
+        ]
+    },
+    "0.0.0.3": {
+        "label": "OrderBot.instSubsingleton",
+        "description": "This lemma states that the type of order-bot elements is a subsingleton. This means that there is only one such element, and it is unique.",
+        "tactic_suggestion": "The `subsingleton` tactic can be used to prove that a type is a subsingleton.",
+        "key_lemmas": [
+            "OrderBot.instSubsingleton"
+        ]
+    },
+    "0.0.1.1": {
+        "label": "Algebraic",
+        "description": "In these examples, we see the use of algebraic properties like commutativity, associativity, and distributivity. The core mathematical transformation is the application of these properties to simplify expressions or rearrange equations.",
+        "tactic_suggestion": "The recommended Lean tactic for this category is `ring`.",
+        "key_lemmas": [
+            "commutativity",
+            "associativity",
+            "distributivity"
+        ]
+    },
+    "0.3.1.0": {
+        "label": "Algebraic",
+        "description": "These examples involve algebraic properties and equation rewriting. The first example uses the fact that the multiplicity of a prime in a factorization is invariant under applying the order isomorphism `factorOrderIso`.",
+        "tactic_suggestion": "The main tactic used in these examples is `simp`.",
+        "key_lemmas": [
+            "multiplicity_prime_eq_multiplicity_image_by_factor_orderIso"
+        ]
+    },
+    "0.1.3.0": {
+        "label": "Algebraic",
+        "description": "The core mathematical transformation in these examples is algebraic in nature. We are using algebraic properties like commutativity, associativity, and distributivity to simplify expressions and prove theorems.",
+        "tactic_suggestion": "The recommended Lean tactic for this kind of transformation is `simp`.",
+        "key_lemmas": [
+            "degree_pos_iff_exists_adj"
+        ]
+    },
+    "0.2.0.3": {
+        "label": "Algebraic Properties",
+        "description": "In these examples, we are dealing with algebraic properties such as commutativity and associativity. The core mathematical transformation is the application of these properties to rearrange and simplify expressions.",
+        "tactic_suggestion": "The recommended Lean tactic for these transformations is 'simp'.",
+        "key_lemmas": [
+            "sumComm_symm",
+            "wellFoundedOn_sup"
+        ]
+    },
+    "0.0.3.1": {
+        "label": "Algebraic Manipulation",
+        "description": "Cluster 0.0.3.1: Algebraic Manipulation",
+        "tactic_suggestion": "rw",
+        "key_lemmas": []
+    },
+    "0.1.0.1": {
+        "label": "Algebraic",
+        "description": "The core mathematical transformation in these examples is algebraic in nature. Commutativity, associativity, and distributivity are the main algebraic properties being used.",
+        "tactic_suggestion": "The recommended Lean tactic for these transformations is `simp`.",
+        "key_lemmas": [
+            "Commute.function_commute_mul_right"
+        ]
+    },
+    "0.0.0.0": {
+        "label": "Algebraic Manipulation",
+        "description": "Cluster 0.0.0.0: Algebraic Manipulation",
+        "tactic_suggestion": "rw",
+        "key_lemmas": []
+    },
+    "0.2.0.0": {
+        "label": "Algebraic Manipulation",
+        "description": "Cluster 0.2.0.0: Algebraic Manipulation",
+        "tactic_suggestion": "rw",
+        "key_lemmas": []
+    }
+}

@@ -1,0 +1,14 @@
+[
+  {
+    "type": "positive",
+    "query": "Nat.gcd (21*n + 4) (14*n + 3) = 1",
+    "positive": "dvd_mul_sub_mul_mul_gcd_of_dvd",
+    "weight": 10.0
+  },
+  {
+    "type": "positive",
+    "query": "Real.log w / Real.log x = 24",
+    "positive": "log_mul_add",
+    "weight": 10.0
+  }
+]

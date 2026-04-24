@@ -1,0 +1,61 @@
+name: pull request
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: install elan
+        run: |
+          set -o pipefail
+          curl https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -sSf | sh -s -- --default-toolchain none -y
+          ~/.elan/bin/lean --version
+          echo "$HOME/.elan/bin" >> $GITHUB_PATH
+          echo "short_lean_version=$(~/.elan/bin/lean --run scripts/lean_version.lean)" >> $GITHUB_ENV
+
+      - name: get mathlib cache
+        run: lake exe cache get
+
+      - name: lake build
+        id: build
+        run: |
+          set -o pipefail
+          echo "Starting build at $(date +'%T')"
+          lake build
+          result_run1=$?
+          echo "Complete at $(date +'%T'); return value $result_run1"
+
+      - name: check that Compfiles.lean is up to date
+        id: check-Compfiles-lean
+        run: |
+          echo "Running mk_toplevel_file.bash..."
+          bash ./scripts/mk_toplevel_file.bash
+          echo "Checking that Compfiles.lean is unchanged..."
+          echo "(If this fails, you should run ./scripts/mk_toplevel_file.bash locally.)"
+          bash ./scripts/assert_working_directory_clean.bash
+
+      - name: run extractProblems
+        id: run-extractProblems
+        run: |
+          set -o pipefail
+          echo "Starting build at $(date +'%T')"
+          lake exe extractProblems
+          result_run1=$?
+          echo "Complete at $(date +'%T'); return value $result_run1"
+
+      - name: run buildWebpage
+        id: run-buildWebpage
+        env:
+          GITHUB_PAGES_BASEURL: https://dwrensha.github.io/compfiles/
+        run: |
+          set -o pipefail
+          echo "Starting build at $(date +'%T')"
+          lake exe buildWebpage
+          result_run1=$?
+          echo "Complete at $(date +'%T'); return value $result_run1"

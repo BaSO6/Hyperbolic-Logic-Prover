@@ -1,0 +1,7 @@
+lakefile.olean
+.lake
+build/
+lake-packages/
+_site
+_extracted
+_check

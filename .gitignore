@@ -1,0 +1,26 @@
+# Large data — download separately per README
+data/mathlib4/
+data/miniF2F/
+data/PutnamBench-main/
+data/ProofNet-main/
+data/*.pt
+data/*.pth
+data/*.pkl.gz
+data/*.zip
+
+# Model weights
+models/
+
+# Lean build artifacts
+.lake/build/
+*.olean
+
+# Python cache
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Mac + misc
+.DS_Store
+cache/
+*.log
