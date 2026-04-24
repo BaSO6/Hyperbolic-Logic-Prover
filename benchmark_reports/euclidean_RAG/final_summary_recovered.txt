@@ -1,0 +1,17 @@
+
+==================================================
+📊 RECOVERED BENCHMARK REPORT
+==================================================
+Recovered From: benchmark_reports/20260109_012220
+Total Problems Scanned: 238
+✅ Passed: 51 (21.43%)
+❌ Failed: 187
+
+🏆 Success Strategy Distribution:
+strategy
+Solver-First    51
+
+💀 Failure Analysis:
+error_type
+SearchExhausted    187
+==================================================

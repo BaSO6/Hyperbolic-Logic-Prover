@@ -1,0 +1,40 @@
+{
+  "problem_name": "amc12b_2020_p2",
+  "category": "Test",
+  "status": "Success",
+  "strategy": "Solver-First",
+  "time_sec": 390.1395,
+  "steps": 1,
+  "nodes_expanded": 0,
+  "error_type": "None",
+  "proof_trace": "norm_num",
+  "error_detail": "",
+  "raw_result": {
+    "status": "Success",
+    "proof": [
+      "norm_num"
+    ],
+    "trace": [
+      {
+        "stage": "goal_classification",
+        "goal": "((100 ^ 2 - 7 ^ 2):\u211d) / (70 ^ 2 - 11 ^ 2) * ((70 - 11) * (70 + 11) / ((100 - 7) * (100 + 7))) = 1",
+        "decision": "searchable"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "native_decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "norm_num",
+        "status": "success"
+      }
+    ]
+  }
+}

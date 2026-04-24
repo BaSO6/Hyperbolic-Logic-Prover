@@ -1,0 +1,50 @@
+{
+  "problem_name": "aime_1989_p8",
+  "category": "Test",
+  "status": "Success",
+  "strategy": "Solver-First",
+  "time_sec": 410.3017,
+  "steps": 1,
+  "nodes_expanded": 0,
+  "error_type": "None",
+  "proof_trace": "linarith",
+  "error_detail": "",
+  "raw_result": {
+    "status": "Success",
+    "proof": [
+      "linarith"
+    ],
+    "trace": [
+      {
+        "stage": "goal_classification",
+        "goal": "\u211d)\n  (h\u2080 : a + 4 * b + 9 * c + 16 * d + 25 * e + 36 * f + 49 * g = 1)\n  (h\u2081 : 4 * a + 9 * b + 16 * c + 25 * d + 36 * e + 49 * f + 64 * g = 12)\n  (h\u2082 : 9 * a + 16 * b + 25 * c + 36 * d + 49 * e + 64 * f + 81 * g = 123) :\n  16 * a + 25 * b + 36 * c + 49 * d + 64 * e + 81 * f + 100 * g = 334",
+        "decision": "searchable"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "native_decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "norm_num",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "simp",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "linarith",
+        "status": "success"
+      }
+    ]
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "problem_name": "amc12b_2002_p19",
+  "category": "Test",
+  "status": "Failed",
+  "strategy": "Unknown",
+  "time_sec": 435.7036,
+  "steps": 0,
+  "nodes_expanded": 1,
+  "error_type": "SearchExhausted",
+  "proof_trace": "",
+  "error_detail": "",
+  "raw_result": {
+    "status": "Failed",
+    "proof": null,
+    "trace": [
+      {
+        "stage": "goal_classification",
+        "goal": "\u211d)\n  (h\u2080 : 0 < a \u2227 0 < b \u2227 0 < c)\n  (h\u2081 : a * (b + c) = 152)\n  (h\u2082 : b * (c + a) = 162)\n  (h\u2083 : c * (a + b) = 170) :\n  a * b * c = 720",
+        "decision": "searchable"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "native_decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "norm_num",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "simp",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "linarith",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "ring",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "aesop",
+        "status": "continue"
+      },
+      {
+        "stage": "expand",
+        "depth": 0,
+        "goal": "\u211d)\n  (h\u2080 : 0 < a \u2227 0 < b \u2227 0 < c)\n  (h\u2081 : a * (b + c) = 152)\n  (h\u2082 : b * (c + a) = 162)\n  (h\u2083 : c * (a + b) = 170) :\n  a * b * c = 720"
+      }
+    ]
+  }
+}

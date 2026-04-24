@@ -1,0 +1,63 @@
+{
+  "problem_name": "aime_1995_p7",
+  "category": "Test",
+  "status": "Failed",
+  "strategy": "Unknown",
+  "time_sec": 436.7923,
+  "steps": 0,
+  "nodes_expanded": 1,
+  "error_type": "SearchExhausted",
+  "proof_trace": "",
+  "error_detail": "",
+  "raw_result": {
+    "status": "Failed",
+    "proof": null,
+    "trace": [
+      {
+        "stage": "goal_classification",
+        "goal": "\u2115)\n  (t : \u211d)\n  (h\u2080 : 0 < k \u2227 0 < m \u2227 0 < n)\n  (h\u2081 : Nat.gcd m n = 1)\n  (h\u2082 : (1 + Real.sin t) * (1 + Real.cos t) = 5/4)\n  (h\u2083 : (1 - Real.sin t) * (1- Real.cos t) = m/n - Real.sqrt k):\n  k + m + n = 27",
+        "decision": "searchable"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "native_decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "norm_num",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "simp",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "linarith",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "ring",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "aesop",
+        "status": "continue"
+      },
+      {
+        "stage": "expand",
+        "depth": 0,
+        "goal": "\u2115)\n  (t : \u211d)\n  (h\u2080 : 0 < k \u2227 0 < m \u2227 0 < n)\n  (h\u2081 : Nat.gcd m n = 1)\n  (h\u2082 : (1 + Real.sin t) * (1 + Real.cos t) = 5/4)\n  (h\u2083 : (1 - Real.sin t) * (1- Real.cos t) = m/n - Real.sqrt k):\n  k + m + n = 27"
+      }
+    ]
+  }
+}

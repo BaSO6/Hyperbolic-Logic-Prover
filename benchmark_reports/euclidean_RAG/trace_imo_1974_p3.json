@@ -1,0 +1,63 @@
+{
+  "problem_name": "imo_1974_p3",
+  "category": "Test",
+  "status": "Failed",
+  "strategy": "Unknown",
+  "time_sec": 437.0196,
+  "steps": 0,
+  "nodes_expanded": 1,
+  "error_type": "SearchExhausted",
+  "proof_trace": "",
+  "error_detail": "",
+  "raw_result": {
+    "status": "Failed",
+    "proof": null,
+    "trace": [
+      {
+        "stage": "goal_classification",
+        "goal": "\u2115) :\n  \u00ac 5\u2223\u2211 k \u2208 Finset.range (n + 1), (Nat.choose (2 * n + 1) (2 * k + 1)) * (2^(3 * k))",
+        "decision": "searchable"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "native_decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "norm_num",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "simp",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "linarith",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "ring",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "aesop",
+        "status": "continue"
+      },
+      {
+        "stage": "expand",
+        "depth": 0,
+        "goal": "\u2115) :\n  \u00ac 5\u2223\u2211 k \u2208 Finset.range (n + 1), (Nat.choose (2 * n + 1) (2 * k + 1)) * (2^(3 * k))"
+      }
+    ]
+  }
+}

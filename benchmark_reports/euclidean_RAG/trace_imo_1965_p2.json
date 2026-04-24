@@ -1,0 +1,63 @@
+{
+  "problem_name": "imo_1965_p2",
+  "category": "Test",
+  "status": "Failed",
+  "strategy": "Unknown",
+  "time_sec": 436.9346,
+  "steps": 0,
+  "nodes_expanded": 1,
+  "error_type": "SearchExhausted",
+  "proof_trace": "",
+  "error_detail": "",
+  "raw_result": {
+    "status": "Failed",
+    "proof": null,
+    "trace": [
+      {
+        "stage": "goal_classification",
+        "goal": "\u211d)\n  (a : \u2115 \u2192 \u211d)\n  (h\u2080 : 0 < a 0 \u2227 0 < a 4 \u2227 0 < a 8)\n  (h\u2081 : a 1 < 0 \u2227 a 2 < 0)\n  (h\u2082 : a 3 < 0 \u2227 a 5 < 0)\n  (h\u2083 : a 6 < 0 \u2227 a 7 < 0)\n  (h\u2084 : 0 < a 0 + a 1 + a 2)\n  (h\u2085 : 0 < a 3 + a 4 + a 5)\n  (h\u2086 : 0 < a 6 + a 7 + a 8)\n  (h\u2087 : a 0 * x + a 1 * y + a 2 * z = 0)\n  (h\u2088 : a 3 * x + a 4 * y + a 5 * z = 0)\n  (h\u2089 : a 6 * x + a 7 * y + a 8 * z = 0) :\n  x = 0 \u2227 y = 0 \u2227 z = 0",
+        "decision": "searchable"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "native_decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "norm_num",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "simp",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "linarith",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "ring",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "aesop",
+        "status": "continue"
+      },
+      {
+        "stage": "expand",
+        "depth": 0,
+        "goal": "\u211d)\n  (a : \u2115 \u2192 \u211d)\n  (h\u2080 : 0 < a 0 \u2227 0 < a 4 \u2227 0 < a 8)\n  (h\u2081 : a 1 < 0 \u2227 a 2 < 0)\n  (h\u2082 : a 3 < 0 \u2227 a 5 < 0)\n  (h\u2083 : a 6 < 0 \u2227 a 7 < 0)\n  (h\u2084 : 0 < a 0 + a 1 + a 2)\n  (h\u2085 : 0 < a 3 + a 4 + a 5)\n  (h\u2086 : 0 < a 6 + a 7 + a 8)\n  (h\u2087 : a 0 * x + a 1 * y + a 2 * z = 0)\n  (h\u2088 : a 3 * x + a 4 * y + a 5 * z = 0)\n  (h\u2089 : a 6 * x + a 7 * y + a 8 * z = 0) :\n  x = 0 \u2227 y = 0 \u2227 z = 0"
+      }
+    ]
+  }
+}

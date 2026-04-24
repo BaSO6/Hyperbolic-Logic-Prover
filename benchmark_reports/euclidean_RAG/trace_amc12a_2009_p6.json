@@ -1,0 +1,63 @@
+{
+  "problem_name": "amc12a_2009_p6",
+  "category": "Test",
+  "status": "Failed",
+  "strategy": "Unknown",
+  "time_sec": 435.8607,
+  "steps": 0,
+  "nodes_expanded": 1,
+  "error_type": "SearchExhausted",
+  "proof_trace": "",
+  "error_detail": "",
+  "raw_result": {
+    "status": "Failed",
+    "proof": null,
+    "trace": [
+      {
+        "stage": "goal_classification",
+        "goal": "\u211d)\n  (h\u2080 : p = 2 ^ m)\n  (h\u2081 : q = 3 ^ n) :\n  p^(2 * n) * (q^m) = 12^(m * n)",
+        "decision": "searchable"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "native_decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "norm_num",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "simp",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "linarith",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "ring",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "aesop",
+        "status": "continue"
+      },
+      {
+        "stage": "expand",
+        "depth": 0,
+        "goal": "\u211d)\n  (h\u2080 : p = 2 ^ m)\n  (h\u2081 : q = 3 ^ n) :\n  p^(2 * n) * (q^m) = 12^(m * n)"
+      }
+    ]
+  }
+}

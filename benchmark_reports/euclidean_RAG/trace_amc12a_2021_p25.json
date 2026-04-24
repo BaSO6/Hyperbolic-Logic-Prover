@@ -1,0 +1,63 @@
+{
+  "problem_name": "amc12a_2021_p25",
+  "category": "Test",
+  "status": "Failed",
+  "strategy": "Unknown",
+  "time_sec": 435.851,
+  "steps": 0,
+  "nodes_expanded": 1,
+  "error_type": "SearchExhausted",
+  "proof_trace": "",
+  "error_detail": "",
+  "raw_result": {
+    "status": "Failed",
+    "proof": null,
+    "trace": [
+      {
+        "stage": "goal_classification",
+        "goal": "\u2115)\n  (f : \u2115 \u2192 \u211d)\n  (h\u2080 : \u2200 n, 0 < n \u2192 f n = ((Nat.divisors n).card)/(n^((1:\u211d)/3)))\n  (h\u2081 : \u2200 n \u2260 N, 0 < n \u2192 f n < f N) :\n  (Nat.digits 10 N).sum = 9",
+        "decision": "searchable"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "native_decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "norm_num",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "simp",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "linarith",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "ring",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "aesop",
+        "status": "continue"
+      },
+      {
+        "stage": "expand",
+        "depth": 0,
+        "goal": "\u2115)\n  (f : \u2115 \u2192 \u211d)\n  (h\u2080 : \u2200 n, 0 < n \u2192 f n = ((Nat.divisors n).card)/(n^((1:\u211d)/3)))\n  (h\u2081 : \u2200 n \u2260 N, 0 < n \u2192 f n < f N) :\n  (Nat.digits 10 N).sum = 9"
+      }
+    ]
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "problem_name": "amc12_2001_p21",
+  "category": "Test",
+  "status": "Failed",
+  "strategy": "Unknown",
+  "time_sec": 435.929,
+  "steps": 0,
+  "nodes_expanded": 1,
+  "error_type": "SearchExhausted",
+  "proof_trace": "",
+  "error_detail": "",
+  "raw_result": {
+    "status": "Failed",
+    "proof": null,
+    "trace": [
+      {
+        "stage": "goal_classification",
+        "goal": "\u2115)\n  (h\u2080 : a * b * c * d = Nat.factorial 8)\n  (h\u2081 : a * b + a + b = 524)\n  (h\u2082 : b * c + b + c = 146)\n  (h\u2083 : c * d + c + d = 104) :\n  \u2191a - \u2191d = (10 : \u2124)",
+        "decision": "searchable"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "native_decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "norm_num",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "simp",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "linarith",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "ring",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "aesop",
+        "status": "continue"
+      },
+      {
+        "stage": "expand",
+        "depth": 0,
+        "goal": "\u2115)\n  (h\u2080 : a * b * c * d = Nat.factorial 8)\n  (h\u2081 : a * b + a + b = 524)\n  (h\u2082 : b * c + b + c = 146)\n  (h\u2083 : c * d + c + d = 104) :\n  \u2191a - \u2191d = (10 : \u2124)"
+      }
+    ]
+  }
+}

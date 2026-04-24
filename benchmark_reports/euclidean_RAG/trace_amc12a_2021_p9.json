@@ -1,0 +1,30 @@
+{
+  "problem_name": "amc12a_2021_p9",
+  "category": "Test",
+  "status": "Success",
+  "strategy": "Solver-First",
+  "time_sec": 370.077,
+  "steps": 1,
+  "nodes_expanded": 0,
+  "error_type": "None",
+  "proof_trace": "decide",
+  "error_detail": "",
+  "raw_result": {
+    "status": "Success",
+    "proof": [
+      "decide"
+    ],
+    "trace": [
+      {
+        "stage": "goal_classification",
+        "goal": "\u220f k \u2208 Finset.range 7, (2^(2^k) + 3^(2^k)) = 3^128 - 2^128",
+        "decision": "searchable"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "decide",
+        "status": "success"
+      }
+    ]
+  }
+}

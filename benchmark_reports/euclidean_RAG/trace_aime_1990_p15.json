@@ -1,0 +1,63 @@
+{
+  "problem_name": "aime_1990_p15",
+  "category": "Test",
+  "status": "Failed",
+  "strategy": "Unknown",
+  "time_sec": 436.6463,
+  "steps": 0,
+  "nodes_expanded": 1,
+  "error_type": "SearchExhausted",
+  "proof_trace": "",
+  "error_detail": "",
+  "raw_result": {
+    "status": "Failed",
+    "proof": null,
+    "trace": [
+      {
+        "stage": "goal_classification",
+        "goal": "\u211d)\n  (h\u2080 : a * x + b * y = 3)\n  (h\u2081 : a * x^2 + b * y^2 = 7)\n  (h\u2082 : a * x^3 + b * y^3 = 16)\n  (h\u2083 : a * x^4 + b * y^4 = 42) :\n  a * x^5 + b * y^5 = 20",
+        "decision": "searchable"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "native_decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "norm_num",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "simp",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "linarith",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "ring",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "aesop",
+        "status": "continue"
+      },
+      {
+        "stage": "expand",
+        "depth": 0,
+        "goal": "\u211d)\n  (h\u2080 : a * x + b * y = 3)\n  (h\u2081 : a * x^2 + b * y^2 = 7)\n  (h\u2082 : a * x^3 + b * y^3 = 16)\n  (h\u2083 : a * x^4 + b * y^4 = 42) :\n  a * x^5 + b * y^5 = 20"
+      }
+    ]
+  }
+}

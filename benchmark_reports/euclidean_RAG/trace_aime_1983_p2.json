@@ -1,0 +1,63 @@
+{
+  "problem_name": "aime_1983_p2",
+  "category": "Test",
+  "status": "Failed",
+  "strategy": "Unknown",
+  "time_sec": 436.7554,
+  "steps": 0,
+  "nodes_expanded": 1,
+  "error_type": "SearchExhausted",
+  "proof_trace": "",
+  "error_detail": "",
+  "raw_result": {
+    "status": "Failed",
+    "proof": null,
+    "trace": [
+      {
+        "stage": "goal_classification",
+        "goal": "\u211d)\n  (f : \u211d \u2192 \u211d)\n  (h\u2080 : 0 < p \u2227 p < 15)\n  (h\u2081 : p \u2264 x \u2227 x \u2264 15)\n  (h\u2082 : f x = abs (x - p) + abs (x - 15) + abs (x - p - 15)) :\n  15 \u2264 f x",
+        "decision": "searchable"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "native_decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "norm_num",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "simp",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "linarith",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "ring",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "aesop",
+        "status": "continue"
+      },
+      {
+        "stage": "expand",
+        "depth": 0,
+        "goal": "\u211d)\n  (f : \u211d \u2192 \u211d)\n  (h\u2080 : 0 < p \u2227 p < 15)\n  (h\u2081 : p \u2264 x \u2227 x \u2264 15)\n  (h\u2082 : f x = abs (x - p) + abs (x - 15) + abs (x - p - 15)) :\n  15 \u2264 f x"
+      }
+    ]
+  }
+}

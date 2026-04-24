@@ -1,0 +1,40 @@
+{
+  "problem_name": "amc12a_2013_p4",
+  "category": "Test",
+  "status": "Success",
+  "strategy": "Solver-First",
+  "time_sec": 390.3029,
+  "steps": 1,
+  "nodes_expanded": 0,
+  "error_type": "None",
+  "proof_trace": "norm_num",
+  "error_detail": "",
+  "raw_result": {
+    "status": "Success",
+    "proof": [
+      "norm_num"
+    ],
+    "trace": [
+      {
+        "stage": "goal_classification",
+        "goal": "(2^2014 + 2^2012) / (2^2014 - 2^2012) = (5:\u211d) / 3",
+        "decision": "searchable"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "native_decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "norm_num",
+        "status": "success"
+      }
+    ]
+  }
+}

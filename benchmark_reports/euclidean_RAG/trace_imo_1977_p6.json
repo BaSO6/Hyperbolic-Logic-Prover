@@ -1,0 +1,63 @@
+{
+  "problem_name": "imo_1977_p6",
+  "category": "Test",
+  "status": "Failed",
+  "strategy": "Unknown",
+  "time_sec": 437.4936,
+  "steps": 0,
+  "nodes_expanded": 1,
+  "error_type": "SearchExhausted",
+  "proof_trace": "",
+  "error_detail": "",
+  "raw_result": {
+    "status": "Failed",
+    "proof": null,
+    "trace": [
+      {
+        "stage": "goal_classification",
+        "goal": "\u2115 \u2192 \u2115)\n  (h\u2080 : \u2200 n, 0 < f n)\n  (h\u2081 : \u2200 n, 0 < n \u2192 f (f n) < f (n + 1)) :\n  \u2200 n, 0 < n \u2192 f n = n",
+        "decision": "searchable"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "native_decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "norm_num",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "simp",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "linarith",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "ring",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "aesop",
+        "status": "continue"
+      },
+      {
+        "stage": "expand",
+        "depth": 0,
+        "goal": "\u2115 \u2192 \u2115)\n  (h\u2080 : \u2200 n, 0 < f n)\n  (h\u2081 : \u2200 n, 0 < n \u2192 f (f n) < f (n + 1)) :\n  \u2200 n, 0 < n \u2192 f n = n"
+      }
+    ]
+  }
+}

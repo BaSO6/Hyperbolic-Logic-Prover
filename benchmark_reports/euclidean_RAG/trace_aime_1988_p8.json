@@ -1,0 +1,63 @@
+{
+  "problem_name": "aime_1988_p8",
+  "category": "Test",
+  "status": "Failed",
+  "strategy": "Unknown",
+  "time_sec": 436.1366,
+  "steps": 0,
+  "nodes_expanded": 1,
+  "error_type": "SearchExhausted",
+  "proof_trace": "",
+  "error_detail": "",
+  "raw_result": {
+    "status": "Failed",
+    "proof": null,
+    "trace": [
+      {
+        "stage": "goal_classification",
+        "goal": "\u2115 \u2192 \u2115 \u2192 \u211d)\n  (h\u2080 : \u2200 x, 0 < x \u2192 f x x = x)\n  (h\u2081 : \u2200 x y, (0 < x \u2227 0 < y) \u2192 f x y = f y x)\n  (h\u2082 : \u2200 x y, (0 < x \u2227 0 < y) \u2192 (\u2191x + \u2191y) * f x y = y * (f x (x + y))) :\n  f 14 52 = 364",
+        "decision": "searchable"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "native_decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "norm_num",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "simp",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "linarith",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "ring",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "aesop",
+        "status": "continue"
+      },
+      {
+        "stage": "expand",
+        "depth": 0,
+        "goal": "\u2115 \u2192 \u2115 \u2192 \u211d)\n  (h\u2080 : \u2200 x, 0 < x \u2192 f x x = x)\n  (h\u2081 : \u2200 x y, (0 < x \u2227 0 < y) \u2192 f x y = f y x)\n  (h\u2082 : \u2200 x y, (0 < x \u2227 0 < y) \u2192 (\u2191x + \u2191y) * f x y = y * (f x (x + y))) :\n  f 14 52 = 364"
+      }
+    ]
+  }
+}

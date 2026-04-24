@@ -1,0 +1,63 @@
+{
+  "problem_name": "algebra_apbmpcneq0_aeq0anbeq0anceq0",
+  "category": "Test",
+  "status": "Failed",
+  "strategy": "Unknown",
+  "time_sec": 436.2677,
+  "steps": 0,
+  "nodes_expanded": 1,
+  "error_type": "SearchExhausted",
+  "proof_trace": "",
+  "error_detail": "",
+  "raw_result": {
+    "status": "Failed",
+    "proof": null,
+    "trace": [
+      {
+        "stage": "goal_classification",
+        "goal": "\u211a)\n  (m n : \u211d)\n  (h\u2080 : 0 < m \u2227 0 < n)\n  (h\u2081 : m^3 = 2)\n  (h\u2082 : n^3 = 4)\n  (h\u2083 : (a:\u211d) + b * m + c * n = 0) :\n  a = 0 \u2227 b = 0 \u2227 c = 0",
+        "decision": "searchable"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "native_decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "norm_num",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "simp",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "linarith",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "ring",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "aesop",
+        "status": "continue"
+      },
+      {
+        "stage": "expand",
+        "depth": 0,
+        "goal": "\u211a)\n  (m n : \u211d)\n  (h\u2080 : 0 < m \u2227 0 < n)\n  (h\u2081 : m^3 = 2)\n  (h\u2082 : n^3 = 4)\n  (h\u2083 : (a:\u211d) + b * m + c * n = 0) :\n  a = 0 \u2227 b = 0 \u2227 c = 0"
+      }
+    ]
+  }
+}

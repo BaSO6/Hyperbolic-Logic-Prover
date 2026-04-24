@@ -1,0 +1,63 @@
+{
+  "problem_name": "amc12a_2021_p8",
+  "category": "Test",
+  "status": "Failed",
+  "strategy": "Unknown",
+  "time_sec": 436.6043,
+  "steps": 0,
+  "nodes_expanded": 1,
+  "error_type": "SearchExhausted",
+  "proof_trace": "",
+  "error_detail": "",
+  "raw_result": {
+    "status": "Failed",
+    "proof": null,
+    "trace": [
+      {
+        "stage": "goal_classification",
+        "goal": "\u2115 \u2192 \u2115)\n  (h\u2080 : d 0 = 0)\n  (h\u2081 : d 1 = 0)\n  (h\u2082 : d 2 = 1)\n  (h\u2083 : \u2200 n\u22653, d n = d (n - 1) + d (n - 3)) :\n  Even (d 2021) \u2227 Odd (d 2022) \u2227 Even (d 2023)",
+        "decision": "searchable"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "native_decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "norm_num",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "simp",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "linarith",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "ring",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "aesop",
+        "status": "error"
+      },
+      {
+        "stage": "expand",
+        "depth": 0,
+        "goal": "\u2115 \u2192 \u2115)\n  (h\u2080 : d 0 = 0)\n  (h\u2081 : d 1 = 0)\n  (h\u2082 : d 2 = 1)\n  (h\u2083 : \u2200 n\u22653, d n = d (n - 1) + d (n - 3)) :\n  Even (d 2021) \u2227 Odd (d 2022) \u2227 Even (d 2023)"
+      }
+    ]
+  }
+}

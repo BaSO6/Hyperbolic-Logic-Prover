@@ -1,0 +1,63 @@
+{
+  "problem_name": "amc12a_2020_p15",
+  "category": "Test",
+  "status": "Failed",
+  "strategy": "Unknown",
+  "time_sec": 435.9495,
+  "steps": 0,
+  "nodes_expanded": 1,
+  "error_type": "SearchExhausted",
+  "proof_trace": "",
+  "error_detail": "",
+  "raw_result": {
+    "status": "Failed",
+    "proof": null,
+    "trace": [
+      {
+        "stage": "goal_classification",
+        "goal": "\u2102)\n  (h\u2080 : a^3 - 8 = 0)\n  (h\u2081 : b^3 - 8 * b^2 - 8 * b + 64 = 0) :\n  \u2016a - b\u2016 \u2264 2 * Real.sqrt 21",
+        "decision": "searchable"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "native_decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "norm_num",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "simp",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "linarith",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "ring",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "aesop",
+        "status": "continue"
+      },
+      {
+        "stage": "expand",
+        "depth": 0,
+        "goal": "\u2102)\n  (h\u2080 : a^3 - 8 = 0)\n  (h\u2081 : b^3 - 8 * b^2 - 8 * b + 64 = 0) :\n  \u2016a - b\u2016 \u2264 2 * Real.sqrt 21"
+      }
+    ]
+  }
+}

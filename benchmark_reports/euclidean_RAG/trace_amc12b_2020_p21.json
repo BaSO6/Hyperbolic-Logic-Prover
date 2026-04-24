@@ -1,0 +1,63 @@
+{
+  "problem_name": "amc12b_2020_p21",
+  "category": "Test",
+  "status": "Failed",
+  "strategy": "Unknown",
+  "time_sec": 436.0924,
+  "steps": 0,
+  "nodes_expanded": 1,
+  "error_type": "SearchExhausted",
+  "proof_trace": "",
+  "error_detail": "",
+  "raw_result": {
+    "status": "Failed",
+    "proof": null,
+    "trace": [
+      {
+        "stage": "goal_classification",
+        "goal": "Finset \u2115)\n  (h\u2080 : \u2200 (n : \u2115), n \u2208 S \u2194 0 < n \u2227 (\u2191n + (1000 : \u211d)) / 70 = Int.floor (Real.sqrt n)) :\n  S.card = 6",
+        "decision": "searchable"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "native_decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "norm_num",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "simp",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "linarith",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "ring",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "aesop",
+        "status": "continue"
+      },
+      {
+        "stage": "expand",
+        "depth": 0,
+        "goal": "Finset \u2115)\n  (h\u2080 : \u2200 (n : \u2115), n \u2208 S \u2194 0 < n \u2227 (\u2191n + (1000 : \u211d)) / 70 = Int.floor (Real.sqrt n)) :\n  S.card = 6"
+      }
+    ]
+  }
+}

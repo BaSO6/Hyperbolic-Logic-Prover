@@ -1,0 +1,63 @@
+{
+  "problem_name": "imo_1981_p6",
+  "category": "Test",
+  "status": "Failed",
+  "strategy": "Unknown",
+  "time_sec": 435.8793,
+  "steps": 0,
+  "nodes_expanded": 1,
+  "error_type": "SearchExhausted",
+  "proof_trace": "",
+  "error_detail": "",
+  "raw_result": {
+    "status": "Failed",
+    "proof": null,
+    "trace": [
+      {
+        "stage": "goal_classification",
+        "goal": "\u2115 \u2192 \u2115 \u2192 \u2115)\n  (g : \u2115 \u2192 \u2115)\n  (h\u2080 : \u2200 y, f 0 y = y + 1)\n  (h\u2081 : \u2200 x, f (x + 1) 0 = f x 1)\n  (h\u2082 : \u2200 x y, f (x + 1) (y + 1) = f x (f (x + 1) y))\n  (h\u2083 : g 0 = 2)\n  (h\u2084 : \u2200 n, g (n + 1) = 2^(g n)) :\n  f 4 1981 = g 1983 - 3",
+        "decision": "searchable"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "native_decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "norm_num",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "simp",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "linarith",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "ring",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "aesop",
+        "status": "error"
+      },
+      {
+        "stage": "expand",
+        "depth": 0,
+        "goal": "\u2115 \u2192 \u2115 \u2192 \u2115)\n  (g : \u2115 \u2192 \u2115)\n  (h\u2080 : \u2200 y, f 0 y = y + 1)\n  (h\u2081 : \u2200 x, f (x + 1) 0 = f x 1)\n  (h\u2082 : \u2200 x y, f (x + 1) (y + 1) = f x (f (x + 1) y))\n  (h\u2083 : g 0 = 2)\n  (h\u2084 : \u2200 n, g (n + 1) = 2^(g n)) :\n  f 4 1981 = g 1983 - 3"
+      }
+    ]
+  }
+}

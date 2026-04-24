@@ -1,0 +1,63 @@
+{
+  "problem_name": "imo_1960_p2",
+  "category": "Test",
+  "status": "Failed",
+  "strategy": "Unknown",
+  "time_sec": 436.5352,
+  "steps": 0,
+  "nodes_expanded": 1,
+  "error_type": "SearchExhausted",
+  "proof_trace": "",
+  "error_detail": "",
+  "raw_result": {
+    "status": "Failed",
+    "proof": null,
+    "trace": [
+      {
+        "stage": "goal_classification",
+        "goal": "\u211d)\n  (h\u2080 : 0 \u2264 1 + 2 * x)\n  (h\u2081 : (1 - Real.sqrt (1 + 2 * x))^2 \u2260 0)\n  (h\u2082 : (4 * x^2) / (1 - Real.sqrt (1 + 2*x))^2 < 2*x + 9)\n  (h\u2083 : x \u2260 0) :\n  -(1 / 2) \u2264 x \u2227 x < 45 / 8",
+        "decision": "searchable"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "native_decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "norm_num",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "simp",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "linarith",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "ring",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "aesop",
+        "status": "continue"
+      },
+      {
+        "stage": "expand",
+        "depth": 0,
+        "goal": "\u211d)\n  (h\u2080 : 0 \u2264 1 + 2 * x)\n  (h\u2081 : (1 - Real.sqrt (1 + 2 * x))^2 \u2260 0)\n  (h\u2082 : (4 * x^2) / (1 - Real.sqrt (1 + 2*x))^2 < 2*x + 9)\n  (h\u2083 : x \u2260 0) :\n  -(1 / 2) \u2264 x \u2227 x < 45 / 8"
+      }
+    ]
+  }
+}

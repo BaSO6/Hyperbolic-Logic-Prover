@@ -1,0 +1,63 @@
+{
+  "problem_name": "amc12a_2002_p13",
+  "category": "Test",
+  "status": "Failed",
+  "strategy": "Unknown",
+  "time_sec": 438.1504,
+  "steps": 0,
+  "nodes_expanded": 1,
+  "error_type": "SearchExhausted",
+  "proof_trace": "",
+  "error_detail": "",
+  "raw_result": {
+    "status": "Failed",
+    "proof": null,
+    "trace": [
+      {
+        "stage": "goal_classification",
+        "goal": "\u211d)\n  (h\u2080 : 0 < a \u2227 0 < b)\n  (h\u2081 : a \u2260 b)\n  (h\u2082 : abs (a - 1/a) = 1)\n  (h\u2083 : abs (b - 1/b) = 1) :\n  a + b = Real.sqrt 5",
+        "decision": "searchable"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "native_decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "norm_num",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "simp",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "linarith",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "ring",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "aesop",
+        "status": "continue"
+      },
+      {
+        "stage": "expand",
+        "depth": 0,
+        "goal": "\u211d)\n  (h\u2080 : 0 < a \u2227 0 < b)\n  (h\u2081 : a \u2260 b)\n  (h\u2082 : abs (a - 1/a) = 1)\n  (h\u2083 : abs (b - 1/b) = 1) :\n  a + b = Real.sqrt 5"
+      }
+    ]
+  }
+}

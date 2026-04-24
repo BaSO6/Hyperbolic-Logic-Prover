@@ -1,0 +1,63 @@
+{
+  "problem_name": "imo_2019_p1",
+  "category": "Test",
+  "status": "Failed",
+  "strategy": "Unknown",
+  "time_sec": 436.4971,
+  "steps": 0,
+  "nodes_expanded": 1,
+  "error_type": "SearchExhausted",
+  "proof_trace": "",
+  "error_detail": "",
+  "raw_result": {
+    "status": "Failed",
+    "proof": null,
+    "trace": [
+      {
+        "stage": "goal_classification",
+        "goal": "\u2124 \u2192 \u2124) :\n  ((\u2200 a b, f (2 * a) + (2 * f b) = f (f (a + b))) \u2194 (\u2200 z, f z = 0 \\/ \u2203 c, \u2200 z, f z = 2 * z + c))",
+        "decision": "searchable"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "native_decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "norm_num",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "simp",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "linarith",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "ring",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "aesop",
+        "status": "continue"
+      },
+      {
+        "stage": "expand",
+        "depth": 0,
+        "goal": "\u2124 \u2192 \u2124) :\n  ((\u2200 a b, f (2 * a) + (2 * f b) = f (f (a + b))) \u2194 (\u2200 z, f z = 0 \\/ \u2203 c, \u2200 z, f z = 2 * z + c))"
+      }
+    ]
+  }
+}

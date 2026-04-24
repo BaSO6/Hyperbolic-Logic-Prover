@@ -1,0 +1,63 @@
+{
+  "problem_name": "amc12a_2020_p4",
+  "category": "Test",
+  "status": "Failed",
+  "strategy": "Unknown",
+  "time_sec": 435.9165,
+  "steps": 0,
+  "nodes_expanded": 1,
+  "error_type": "SearchExhausted",
+  "proof_trace": "",
+  "error_detail": "",
+  "raw_result": {
+    "status": "Failed",
+    "proof": null,
+    "trace": [
+      {
+        "stage": "goal_classification",
+        "goal": "Finset \u2115)\n  (h\u2080 : \u2200 (n : \u2115), n \u2208 S \u2194 1000 \u2264 n \u2227 n \u2264 9999 \u2227 (\u2200 (d : \u2115), d \u2208 Nat.digits 10 n \u2192 Even d) \u2227 5 \u2223 n) :\n  S.card = 100",
+        "decision": "searchable"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "native_decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "norm_num",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "simp",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "linarith",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "ring",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "aesop",
+        "status": "continue"
+      },
+      {
+        "stage": "expand",
+        "depth": 0,
+        "goal": "Finset \u2115)\n  (h\u2080 : \u2200 (n : \u2115), n \u2208 S \u2194 1000 \u2264 n \u2227 n \u2264 9999 \u2227 (\u2200 (d : \u2115), d \u2208 Nat.digits 10 n \u2192 Even d) \u2227 5 \u2223 n) :\n  S.card = 100"
+      }
+    ]
+  }
+}

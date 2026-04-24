@@ -1,0 +1,63 @@
+{
+  "problem_name": "amc12a_2021_p12",
+  "category": "Test",
+  "status": "Failed",
+  "strategy": "Unknown",
+  "time_sec": 436.061,
+  "steps": 0,
+  "nodes_expanded": 1,
+  "error_type": "SearchExhausted",
+  "proof_trace": "",
+  "error_detail": "",
+  "raw_result": {
+    "status": "Failed",
+    "proof": null,
+    "trace": [
+      {
+        "stage": "goal_classification",
+        "goal": "\u211d)\n  (f : \u2102 \u2192 \u2102)\n  (h\u2080 : \u2200 z, f z = z^6 - 10 * z^5 + a * z^4 + b * z^3 + c * z^2 + d * z + 16)\n  (h\u2081 : \u2200 z, f z = 0 \u2192 (z.im = 0 \u2227 0 < z.re \u2227 \u2191(Int.floor z.re) = z.re)) :\n  b = -88",
+        "decision": "searchable"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "native_decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "norm_num",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "simp",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "linarith",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "ring",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "aesop",
+        "status": "continue"
+      },
+      {
+        "stage": "expand",
+        "depth": 0,
+        "goal": "\u211d)\n  (f : \u2102 \u2192 \u2102)\n  (h\u2080 : \u2200 z, f z = z^6 - 10 * z^5 + a * z^4 + b * z^3 + c * z^2 + d * z + 16)\n  (h\u2081 : \u2200 z, f z = 0 \u2192 (z.im = 0 \u2227 0 < z.re \u2227 \u2191(Int.floor z.re) = z.re)) :\n  b = -88"
+      }
+    ]
+  }
+}

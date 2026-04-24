@@ -1,0 +1,63 @@
+{
+  "problem_name": "amc12a_2021_p14",
+  "category": "Test",
+  "status": "Failed",
+  "strategy": "Unknown",
+  "time_sec": 435.6766,
+  "steps": 0,
+  "nodes_expanded": 1,
+  "error_type": "SearchExhausted",
+  "proof_trace": "",
+  "error_detail": "",
+  "raw_result": {
+    "status": "Failed",
+    "proof": null,
+    "trace": [
+      {
+        "stage": "goal_classification",
+        "goal": "(\u2211 k \u2208 (Finset.Icc 1 20), (Real.logb (5^k) (3^(k^2)))) * (\u2211 k \u2208 (Finset.Icc 1 100), (Real.logb (9^k) (25^k))) = 21000",
+        "decision": "searchable"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "native_decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "norm_num",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "simp",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "linarith",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "ring",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "aesop",
+        "status": "continue"
+      },
+      {
+        "stage": "expand",
+        "depth": 0,
+        "goal": "(\u2211 k \u2208 (Finset.Icc 1 20), (Real.logb (5^k) (3^(k^2)))) * (\u2211 k \u2208 (Finset.Icc 1 100), (Real.logb (9^k) (25^k))) = 21000"
+      }
+    ]
+  }
+}

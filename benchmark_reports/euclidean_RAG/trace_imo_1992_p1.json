@@ -1,0 +1,63 @@
+{
+  "problem_name": "imo_1992_p1",
+  "category": "Test",
+  "status": "Failed",
+  "strategy": "Unknown",
+  "time_sec": 436.7383,
+  "steps": 0,
+  "nodes_expanded": 1,
+  "error_type": "SearchExhausted",
+  "proof_trace": "",
+  "error_detail": "",
+  "raw_result": {
+    "status": "Failed",
+    "proof": null,
+    "trace": [
+      {
+        "stage": "goal_classification",
+        "goal": "\u2124)\n  (h\u2080 : 1 < p \u2227 p < q \u2227 q < r)\n  (h\u2081 : (p - 1) * (q - 1) * (r - 1)\u2223(p * q * r - 1)) :\n  (p, q, r) = (2, 4, 8) \u2228 (p, q, r) = (3, 5, 15)",
+        "decision": "searchable"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "native_decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "norm_num",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "simp",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "linarith",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "ring",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "aesop",
+        "status": "continue"
+      },
+      {
+        "stage": "expand",
+        "depth": 0,
+        "goal": "\u2124)\n  (h\u2080 : 1 < p \u2227 p < q \u2227 q < r)\n  (h\u2081 : (p - 1) * (q - 1) * (r - 1)\u2223(p * q * r - 1)) :\n  (p, q, r) = (2, 4, 8) \u2228 (p, q, r) = (3, 5, 15)"
+      }
+    ]
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "problem_name": "amc12b_2002_p7",
+  "category": "Test",
+  "status": "Failed",
+  "strategy": "Unknown",
+  "time_sec": 435.9481,
+  "steps": 0,
+  "nodes_expanded": 1,
+  "error_type": "SearchExhausted",
+  "proof_trace": "",
+  "error_detail": "",
+  "raw_result": {
+    "status": "Failed",
+    "proof": null,
+    "trace": [
+      {
+        "stage": "goal_classification",
+        "goal": "\u2115)\n  (h\u2080 : 0 < a \u2227 0 < b \u2227 0 < c)\n  (h\u2081 : b = a + 1)\n  (h\u2082 : c = b + 1)\n  (h\u2083 : a * b * c = 8 * (a + b + c)) :\n  a^2 + (b^2 + c^2) = 77",
+        "decision": "searchable"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "native_decide",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "norm_num",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "simp",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "linarith",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "ring",
+        "status": "continue"
+      },
+      {
+        "stage": "solver_try",
+        "tactic": "aesop",
+        "status": "continue"
+      },
+      {
+        "stage": "expand",
+        "depth": 0,
+        "goal": "\u2115)\n  (h\u2080 : 0 < a \u2227 0 < b \u2227 0 < c)\n  (h\u2081 : b = a + 1)\n  (h\u2082 : c = b + 1)\n  (h\u2083 : a * b * c = 8 * (a + b + c)) :\n  a^2 + (b^2 + c^2) = 77"
+      }
+    ]
+  }
+}
