@@ -1,0 +1,228 @@
+name,run_idx,status,time,steps,avg_radius,min_trust,layer_stats,error,exp_count,timestamp
+numbertheory_exk2powkeqapb2mulbpa2_aeq1,0,Fail,62.3,0,0.7371,-0.0,{'Synergy': 650},TrustGateReject,0,2026-01-28T23:30:25.693513
+numbertheory_exk2powkeqapb2mulbpa2_aeq1,1,Fail,63.13,0,0.7371,0.0,{'Synergy': 650},SearchExhausted,0,2026-01-28T23:30:27.244682
+numbertheory_exk2powkeqapb2mulbpa2_aeq1,3,Fail,63.94,0,0.7371,0.0,{'Synergy': 650},SearchExhausted,0,2026-01-28T23:30:28.052362
+numbertheory_exk2powkeqapb2mulbpa2_aeq1,2,Fail,63.94,0,0.7371,-0.0,{'Synergy': 650},TrustGateReject,0,2026-01-28T23:30:28.054127
+numbertheory_exk2powkeqapb2mulbpa2_aeq1,4,Fail,62.94,0,0.7371,-0.0,{'Synergy': 650},TrustGateReject,0,2026-01-28T23:31:28.798862
+numbertheory_exk2powkeqapb2mulbpa2_aeq1,5,Fail,62.71,0,0.7371,0.0,{'Synergy': 650},SearchExhausted,0,2026-01-28T23:31:30.111902
+numbertheory_exk2powkeqapb2mulbpa2_aeq1,7,Fail,63.38,0,0.7371,-0.0,{'Synergy': 650},TrustGateReject,0,2026-01-28T23:31:31.906181
+numbertheory_exk2powkeqapb2mulbpa2_aeq1,6,Fail,64.07,0,0.7371,0.0,{'Synergy': 650},SearchExhausted,0,2026-01-28T23:31:32.595977
+amc12_2000_p20,0,Success,16.28,2,0.8156,-0.0,{'Synergy': 157},None,0,2026-01-28T23:31:48.793539
+amc12_2000_p20,1,Success,16.54,2,0.8156,0.0,{'Synergy': 157},None,0,2026-01-28T23:31:49.289433
+amc12_2000_p20,2,Success,16.11,2,0.8156,-0.0,{'Synergy': 157},None,0,2026-01-28T23:32:05.030750
+amc12_2000_p20,3,Success,15.9,2,0.8156,0.0,{'Synergy': 157},None,0,2026-01-28T23:32:05.570669
+amc12_2000_p20,4,Success,16.46,2,0.8156,-0.0,{'Synergy': 157},None,0,2026-01-28T23:32:21.720960
+amc12_2000_p20,5,Success,16.47,2,0.8156,0.0,{'Synergy': 157},None,0,2026-01-28T23:32:22.180376
+numbertheory_exk2powkeqapb2mulbpa2_aeq1,8,Fail,67.03,0,0.7371,-0.0,{'Synergy': 650},TrustGateReject,0,2026-01-28T23:32:35.982350
+numbertheory_exk2powkeqapb2mulbpa2_aeq1,9,Fail,67.97,0,0.7371,0.0,{'Synergy': 650},SearchExhausted,0,2026-01-28T23:32:38.236014
+amc12_2000_p20,6,Success,17.15,2,0.8156,-0.0,{'Synergy': 157},None,0,2026-01-28T23:32:39.003269
+amc12_2000_p20,7,Success,16.92,2,0.8156,0.0,{'Synergy': 157},None,0,2026-01-28T23:32:39.234162
+amc12_2000_p20,8,Success,16.06,2,0.8112,-0.0,{'Synergy': 144},None,0,2026-01-28T23:32:52.188611
+amc12_2000_p20,9,Success,16.67,2,0.8156,0.0,{'Synergy': 157},None,0,2026-01-28T23:32:55.047702
+mathd_numbertheory_314,1,Fail,65.22,0,0.7564,0.0,{'Synergy': 650},SearchExhausted,0,2026-01-28T23:33:44.697318
+mathd_numbertheory_314,0,Fail,65.61,0,0.7566,-0.0,{'Synergy': 650},TrustGateReject,0,2026-01-28T23:33:45.084124
+mathd_numbertheory_314,2,Fail,64.89,0,0.7566,-0.0,{'Synergy': 650},TrustGateReject,0,2026-01-28T23:33:57.229210
+mathd_numbertheory_314,3,Fail,65.62,0,0.7563,0.0,{'Synergy': 650},SearchExhausted,0,2026-01-28T23:34:00.801105
+mathd_numbertheory_314,5,Fail,67.1,0,0.7564,-0.0,{'Synergy': 650},TrustGateReject,0,2026-01-28T23:34:52.321475
+mathd_numbertheory_314,4,Fail,67.48,0,0.7564,0.0,{'Synergy': 650},SearchExhausted,0,2026-01-28T23:34:52.335584
+mathd_numbertheory_314,6,Fail,68.43,0,0.7565,-0.0,{'Synergy': 650},TrustGateReject,0,2026-01-28T23:35:05.834873
+mathd_numbertheory_314,7,Fail,68.88,0,0.7565,0.0,{'Synergy': 650},SearchExhausted,0,2026-01-28T23:35:09.847617
+mathd_numbertheory_353,0,Success,16.92,2,0.7614,-0.0,{'Synergy': 157},None,0,2026-01-28T23:35:22.919239
+mathd_numbertheory_353,1,Success,16.99,2,0.7614,0.0,{'Synergy': 157},None,0,2026-01-28T23:35:26.991329
+mathd_numbertheory_353,2,Success,17.19,2,0.7614,-0.0,{'Synergy': 157},None,0,2026-01-28T23:35:40.265048
+mathd_numbertheory_353,3,Success,17.39,2,0.7614,0.0,{'Synergy': 157},None,0,2026-01-28T23:35:44.503892
+mathd_numbertheory_353,4,Success,16.9,2,0.7614,-0.0,{'Synergy': 157},None,0,2026-01-28T23:35:57.330797
+mathd_numbertheory_353,5,Success,16.89,2,0.7614,0.0,{'Synergy': 157},None,0,2026-01-28T23:36:01.518551
+mathd_numbertheory_314,9,Fail,69.63,0,0.7564,0.0,{'Synergy': 650},SearchExhausted,0,2026-01-28T23:36:02.122811
+mathd_numbertheory_314,8,Fail,69.9,0,0.7566,-0.0,{'Synergy': 650},TrustGateReject,0,2026-01-28T23:36:02.366238
+mathd_numbertheory_353,6,Success,16.75,2,0.7614,-0.0,{'Synergy': 157},None,0,2026-01-28T23:36:14.231697
+mathd_numbertheory_353,7,Success,17.12,2,0.7614,0.0,{'Synergy': 157},None,0,2026-01-28T23:36:18.772055
+mathd_numbertheory_353,8,Success,18.5,2,0.774,0.0,{'Synergy': 170},None,0,2026-01-28T23:36:20.777431
+mathd_numbertheory_353,9,Success,18.37,2,0.7614,-0.0,{'Synergy': 157},None,0,2026-01-28T23:36:20.896652
+imo_1977_p6,0,Success,17.2,2,0.8397,-0.0,{'Synergy': 144},None,0,2026-01-28T23:36:31.581286
+imo_1977_p6,1,Success,16.42,2,0.8397,0.0,{'Synergy': 144},None,0,2026-01-28T23:36:35.318468
+imo_1977_p6,2,Success,16.49,2,0.8397,0.0,{'Synergy': 144},None,0,2026-01-28T23:36:37.424823
+imo_1977_p6,3,Success,17.37,2,0.8397,-0.0,{'Synergy': 144},None,0,2026-01-28T23:36:38.426347
+imo_1977_p6,4,Success,16.94,2,0.8397,-0.0,{'Synergy': 144},None,0,2026-01-28T23:36:48.973782
+imo_1977_p6,5,Success,16.07,2,0.8397,0.0,{'Synergy': 144},None,0,2026-01-28T23:36:51.522678
+imo_1977_p6,6,Success,16.18,2,0.8397,0.0,{'Synergy': 144},None,0,2026-01-28T23:36:53.822107
+imo_1977_p6,7,Success,17.23,2,0.8397,-0.0,{'Synergy': 144},None,0,2026-01-28T23:36:55.806821
+imo_1977_p6,8,Success,16.18,2,0.8397,-0.0,{'Synergy': 144},None,0,2026-01-28T23:37:05.315062
+imo_1977_p6,9,Success,16.34,2,0.8397,0.0,{'Synergy': 144},None,0,2026-01-28T23:37:08.083915
+imo_1983_p6,0,Success,24.76,2,0.789,0.0,{'Synergy': 157},None,0,2026-01-28T23:37:18.796850
+imo_1983_p6,1,Success,23.31,2,0.7754,-0.0,{'Synergy': 144},None,0,2026-01-28T23:37:19.270859
+imo_1983_p6,2,Success,26.61,2,0.7754,-0.0,{'Synergy': 144},None,0,2026-01-28T23:37:32.452959
+imo_1983_p6,3,Success,29.94,2,0.789,0.0,{'Synergy': 157},None,0,2026-01-28T23:37:38.590256
+imo_1983_p6,5,Success,30.17,2,0.7754,-0.0,{'Synergy': 144},None,0,2026-01-28T23:37:49.672280
+imo_1983_p6,4,Success,31.35,2,0.789,0.0,{'Synergy': 157},None,0,2026-01-28T23:37:50.406591
+imo_1983_p6,6,Success,27.66,2,0.7754,-0.0,{'Synergy': 144},None,0,2026-01-28T23:38:00.442767
+imo_1968_p5_1,0,Fail,4.59,0,0.7875,-99.0,{'Structure': 40},TrustGateReject,0,2026-01-28T23:38:05.204295
+imo_1983_p6,7,Success,27.06,2,0.789,0.0,{'Synergy': 157},None,0,2026-01-28T23:38:05.838880
+imo_1968_p5_1,1,Fail,4.63,0,0.7875,-99.0,{'Structure': 40},TrustGateReject,0,2026-01-28T23:38:09.979028
+imo_1968_p5_1,2,Fail,4.71,0,0.7875,-99.0,{'Structure': 40},TrustGateReject,0,2026-01-28T23:38:10.680250
+imo_1983_p6,8,Success,23.75,2,0.7754,-0.0,{'Synergy': 144},None,0,2026-01-28T23:38:13.705127
+imo_1968_p5_1,3,Fail,4.63,0,0.7875,-99.0,{'Structure': 40},TrustGateReject,0,2026-01-28T23:38:14.740462
+imo_1968_p5_1,4,Fail,4.61,0,0.7875,-99.0,{'Structure': 40},TrustGateReject,0,2026-01-28T23:38:15.413273
+imo_1983_p6,9,Success,24.85,2,0.789,0.0,{'Synergy': 157},None,0,2026-01-28T23:38:15.445842
+imo_1968_p5_1,5,Fail,4.56,0,0.7875,-99.0,{'Structure': 40},TrustGateReject,0,2026-01-28T23:38:18.427183
+imo_1968_p5_1,6,Fail,4.57,0,0.7875,-99.0,{'Structure': 40},TrustGateReject,0,2026-01-28T23:38:19.435265
+imo_1968_p5_1,7,Fail,4.58,0,0.7875,-99.0,{'Structure': 40},TrustGateReject,0,2026-01-28T23:38:20.112848
+imo_1968_p5_1,8,Fail,4.6,0,0.7875,-99.0,{'Structure': 40},TrustGateReject,0,2026-01-28T23:38:20.447337
+imo_1968_p5_1,9,Fail,4.58,0,0.7875,-99.0,{'Structure': 40},TrustGateReject,0,2026-01-28T23:38:23.127302
+mathd_numbertheory_541,2,Success,17.93,2,0.7791,0.0,{'Synergy': 157},None,0,2026-01-28T23:38:38.494706
+mathd_numbertheory_541,0,Success,19.21,2,0.7907,-0.0,{'Synergy': 170},None,0,2026-01-28T23:38:38.763209
+mathd_numbertheory_541,1,Success,19.34,2,0.7907,0.0,{'Synergy': 170},None,0,2026-01-28T23:38:39.571837
+mathd_numbertheory_541,3,Success,17.99,2,0.7791,-0.0,{'Synergy': 157},None,0,2026-01-28T23:38:41.240919
+mathd_numbertheory_541,4,Success,18.52,2,0.7791,0.0,{'Synergy': 157},None,0,2026-01-28T23:38:57.234457
+mathd_numbertheory_541,5,Success,19.69,2,0.7907,-0.0,{'Synergy': 170},None,0,2026-01-28T23:38:58.610709
+mathd_numbertheory_541,6,Success,19.87,2,0.7907,0.0,{'Synergy': 170},None,0,2026-01-28T23:38:59.577720
+mathd_numbertheory_541,7,Success,18.63,2,0.7791,-0.0,{'Synergy': 157},None,0,2026-01-28T23:39:00.288406
+mathd_numbertheory_541,8,Success,18.14,2,0.7791,0.0,{'Synergy': 157},None,0,2026-01-28T23:39:15.511589
+mathd_numbertheory_541,9,Success,19.51,2,0.7907,-0.0,{'Synergy': 170},None,0,2026-01-28T23:39:18.281409
+algebra_absxm1pabsxpabsxp1eqxp2_0leqxleq1,0,Fail,77.84,0,0.7458,-99.0,"{'Structure': 1, 'Synergy': 637}",TrustGateReject,0,2026-01-28T23:40:17.543589
+algebra_absxm1pabsxpabsxp1eqxp2_0leqxleq1,1,Fail,79.05,0,0.7458,-99.0,"{'Structure': 1, 'Synergy': 637}",TrustGateReject,0,2026-01-28T23:40:19.491298
+algebra_absxm1pabsxpabsxp1eqxp2_0leqxleq1,2,Fail,80.32,0,0.7458,-99.0,"{'Structure': 1, 'Synergy': 637}",TrustGateReject,0,2026-01-28T23:40:36.115524
+algebra_absxm1pabsxpabsxp1eqxp2_0leqxleq1,3,Fail,82.98,0,0.7458,-99.0,"{'Structure': 1, 'Synergy': 637}",TrustGateReject,0,2026-01-28T23:40:41.590107
+algebra_absxm1pabsxpabsxp1eqxp2_0leqxleq1,4,Fail,93.44,0,0.7458,-99.0,"{'Structure': 1, 'Synergy': 637}",TrustGateReject,0,2026-01-28T23:41:51.116895
+algebra_absxm1pabsxpabsxp1eqxp2_0leqxleq1,5,Fail,93.41,0,0.7458,-99.0,"{'Structure': 1, 'Synergy': 637}",TrustGateReject,0,2026-01-28T23:41:53.059403
+algebra_absxm1pabsxpabsxp1eqxp2_0leqxleq1,6,Fail,92.68,0,0.7458,-99.0,"{'Structure': 1, 'Synergy': 637}",TrustGateReject,0,2026-01-28T23:42:09.064231
+algebra_absxm1pabsxpabsxp1eqxp2_0leqxleq1,7,Fail,90.63,0,0.7458,-99.0,"{'Structure': 1, 'Synergy': 637}",TrustGateReject,0,2026-01-28T23:42:12.446608
+algebra_absxm1pabsxpabsxp1eqxp2_0leqxleq1,9,Fail,83.65,0,0.7458,-99.0,"{'Structure': 1, 'Synergy': 637}",TrustGateReject,0,2026-01-28T23:43:16.859399
+algebra_absxm1pabsxpabsxp1eqxp2_0leqxleq1,8,Fail,86.69,0,0.7458,-99.0,"{'Structure': 1, 'Synergy': 637}",TrustGateReject,0,2026-01-28T23:43:17.971953
+mathd_numbertheory_233,0,Fail,125.55,0,0.7651,0.0,{'Synergy': 650},SearchExhausted,0,2026-01-28T23:44:14.777825
+mathd_numbertheory_233,1,Fail,124.21,0,0.765,-0.0,{'Synergy': 650},TrustGateReject,0,2026-01-28T23:44:16.820189
+mathd_numbertheory_233,2,Fail,128.5,0,0.765,-0.0,{'Synergy': 650},TrustGateReject,0,2026-01-28T23:45:25.497957
+mathd_numbertheory_233,3,Fail,128.16,0,0.7649,0.0,{'Synergy': 650},SearchExhausted,0,2026-01-28T23:45:26.286404
+mathd_numbertheory_233,4,Fail,126.11,0,0.7651,0.0,{'Synergy': 650},SearchExhausted,0,2026-01-28T23:46:21.049086
+mathd_numbertheory_233,5,Fail,127.24,0,0.7653,-0.0,{'Synergy': 650},TrustGateReject,0,2026-01-28T23:46:24.212371
+mathd_numbertheory_233,7,Fail,128.36,0,0.7652,0.0,{'Synergy': 650},SearchExhausted,0,2026-01-28T23:47:34.814721
+mathd_numbertheory_212,0,Success,0.37,1,0.8558,0.0,{'Synergy': 1},None,0,2026-01-28T23:47:35.339204
+mathd_numbertheory_212,1,Success,0.37,1,0.8558,0.0,{'Synergy': 1},None,0,2026-01-28T23:47:35.832730
+mathd_numbertheory_233,6,Fail,130.29,0,0.7649,-0.0,{'Synergy': 650},TrustGateReject,0,2026-01-28T23:47:35.999273
+mathd_numbertheory_212,2,Success,0.36,1,0.8558,0.0,{'Synergy': 1},None,0,2026-01-28T23:47:36.318014
+mathd_numbertheory_212,3,Success,0.77,1,0.8558,0.0,{'Synergy': 1},None,0,2026-01-28T23:47:36.925029
+mathd_numbertheory_212,4,Success,0.37,1,0.8558,0.0,{'Synergy': 1},None,0,2026-01-28T23:47:37.071254
+mathd_numbertheory_212,5,Success,0.43,1,0.8558,0.0,{'Synergy': 1},None,0,2026-01-28T23:47:37.494611
+mathd_numbertheory_212,6,Success,0.37,1,0.8558,0.0,{'Synergy': 1},None,0,2026-01-28T23:47:37.563071
+mathd_numbertheory_212,7,Success,0.38,1,0.8558,0.0,{'Synergy': 1},None,0,2026-01-28T23:47:38.003411
+mathd_numbertheory_212,8,Success,0.37,1,0.8558,0.0,{'Synergy': 1},None,0,2026-01-28T23:47:38.050177
+mathd_numbertheory_212,9,Success,0.38,1,0.8558,0.0,{'Synergy': 1},None,0,2026-01-28T23:47:38.499356
+mathd_numbertheory_447,0,Success,16.36,2,0.8671,0.0,{'Synergy': 93},None,0,2026-01-28T23:47:54.531697
+mathd_numbertheory_447,1,Success,16.76,2,0.8671,-0.0,{'Synergy': 93},None,0,2026-01-28T23:47:55.388073
+mathd_numbertheory_447,2,Success,15.77,2,0.8671,0.0,{'Synergy': 93},None,0,2026-01-28T23:48:10.459996
+mathd_numbertheory_447,3,Success,16.0,2,0.8671,-0.0,{'Synergy': 93},None,0,2026-01-28T23:48:11.546806
+mathd_numbertheory_447,4,Success,15.81,2,0.8671,0.0,{'Synergy': 93},None,0,2026-01-28T23:48:26.443018
+mathd_numbertheory_447,5,Success,15.8,2,0.8671,-0.0,{'Synergy': 93},None,0,2026-01-28T23:48:27.712403
+mathd_numbertheory_233,8,Fail,126.9,0,0.7651,0.0,{'Synergy': 650},SearchExhausted,0,2026-01-28T23:48:28.129469
+mathd_numbertheory_233,9,Fail,129.41,0,0.7649,-0.0,{'Synergy': 650},TrustGateReject,0,2026-01-28T23:48:33.785151
+mathd_numbertheory_447,6,Success,16.05,2,0.8671,0.0,{'Synergy': 93},None,0,2026-01-28T23:48:42.668068
+mathd_numbertheory_447,7,Success,16.2,2,0.8671,-0.0,{'Synergy': 93},None,0,2026-01-28T23:48:44.078418
+mathd_numbertheory_447,8,Success,15.82,2,0.8671,0.0,{'Synergy': 93},None,0,2026-01-28T23:48:44.159857
+mathd_numbertheory_447,9,Success,13.93,2,0.8551,-0.0,{'Synergy': 80},None,0,2026-01-28T23:48:47.880518
+amc12b_2020_p13,0,Success,37.55,2,0.7817,0.0,{'Synergy': 201},None,0,2026-01-28T23:49:20.724619
+amc12b_2020_p13,2,Success,37.26,2,0.7817,0.0,{'Synergy': 201},None,0,2026-01-28T23:49:21.582139
+amc12b_2020_p13,1,Success,38.34,2,0.7817,-0.0,{'Synergy': 201},None,0,2026-01-28T23:49:22.540241
+amc12b_2020_p13,3,Success,39.07,2,0.7906,-0.0,{'Synergy': 214},None,0,2026-01-28T23:49:27.094771
+amc12b_2020_p13,4,Success,38.33,2,0.7817,0.0,{'Synergy': 201},None,0,2026-01-28T23:49:59.212946
+amc12b_2020_p13,5,Success,37.92,2,0.7817,0.0,{'Synergy': 201},None,0,2026-01-28T23:49:59.660294
+amc12b_2020_p13,6,Success,39.1,2,0.7817,-0.0,{'Synergy': 201},None,0,2026-01-28T23:50:01.802606
+amc12b_2020_p13,7,Success,39.58,2,0.7906,-0.0,{'Synergy': 214},None,0,2026-01-28T23:50:06.843129
+amc12b_2020_p13,9,Success,38.32,2,0.7817,0.0,{'Synergy': 201},None,0,2026-01-28T23:50:38.126069
+amc12b_2020_p13,8,Success,39.22,2,0.7817,0.0,{'Synergy': 201},None,0,2026-01-28T23:50:38.588064
+mathd_algebra_148,0,Fail,92.48,0,0.7579,-0.0,{'Synergy': 650},TrustGateReject,0,2026-01-28T23:51:34.432610
+mathd_algebra_148,1,Fail,92.12,0,0.7579,-0.0,{'Synergy': 650},TrustGateReject,0,2026-01-28T23:51:39.133540
+mathd_algebra_148,2,Fail,91.79,0,0.7579,0.0,{'Synergy': 650},SearchExhausted,0,2026-01-28T23:52:10.309683
+mathd_algebra_148,3,Fail,93.03,0,0.7571,0.0,{'Synergy': 650},SearchExhausted,0,2026-01-28T23:52:11.781057
+mathd_algebra_148,4,Fail,95.8,0,0.7583,-0.0,{'Synergy': 650},TrustGateReject,0,2026-01-28T23:53:10.391414
+mathd_algebra_148,5,Fail,93.69,0,0.758,-0.0,{'Synergy': 650},TrustGateReject,0,2026-01-28T23:53:12.993546
+mathd_algebra_148,6,Fail,94.89,0,0.7579,0.0,{'Synergy': 650},SearchExhausted,0,2026-01-28T23:53:45.354145
+mathd_algebra_148,7,Fail,98.49,0,0.7578,0.0,{'Synergy': 650},SearchExhausted,0,2026-01-28T23:53:50.435352
+mathd_algebra_209,0,Success,12.46,2,0.8935,0.0,{'Synergy': 79},None,0,2026-01-28T23:53:57.989638
+mathd_algebra_209,1,Success,15.47,2,0.8935,0.0,{'Synergy': 79},None,0,2026-01-28T23:54:06.757807
+mathd_algebra_209,2,Success,12.28,2,0.8935,0.0,{'Synergy': 79},None,0,2026-01-28T23:54:10.389452
+mathd_algebra_209,3,Success,12.56,2,0.8935,0.0,{'Synergy': 79},None,0,2026-01-28T23:54:19.470245
+mathd_algebra_209,4,Success,12.48,2,0.8935,0.0,{'Synergy': 79},None,0,2026-01-28T23:54:22.997976
+mathd_algebra_209,5,Success,13.15,2,0.8935,0.0,{'Synergy': 79},None,0,2026-01-28T23:54:32.781454
+mathd_algebra_209,6,Success,12.72,2,0.8935,0.0,{'Synergy': 79},None,0,2026-01-28T23:54:36.256977
+mathd_algebra_209,7,Success,12.62,2,0.8935,0.0,{'Synergy': 79},None,0,2026-01-28T23:54:45.548413
+mathd_algebra_148,8,Fail,97.6,0,0.7573,-0.0,{'Synergy': 650},TrustGateReject,0,2026-01-28T23:54:48.148918
+mathd_algebra_209,8,Success,12.39,2,0.8935,0.0,{'Synergy': 79},None,0,2026-01-28T23:54:48.789477
+mathd_algebra_148,9,Fail,96.39,0,0.7579,-0.0,{'Synergy': 650},TrustGateReject,0,2026-01-28T23:54:49.537101
+mathd_algebra_209,9,Success,12.6,2,0.8935,0.0,{'Synergy': 79},None,0,2026-01-28T23:54:58.397919
+mathd_numbertheory_247,0,Success,19.57,2,0.7734,-0.0,{'Synergy': 131},None,0,2026-01-28T23:55:07.873121
+mathd_numbertheory_247,1,Success,20.12,2,0.7734,0.0,{'Synergy': 131},None,0,2026-01-28T23:55:09.043828
+mathd_numbertheory_247,2,Success,19.45,2,0.7734,-0.0,{'Synergy': 131},None,0,2026-01-28T23:55:09.165897
+mathd_numbertheory_247,3,Success,21.65,2,0.7881,0.0,{'Synergy': 144},None,0,2026-01-28T23:55:20.193249
+mathd_numbertheory_247,4,Success,19.77,2,0.7734,-0.0,{'Synergy': 131},None,0,2026-01-28T23:55:27.777306
+mathd_numbertheory_247,5,Success,19.98,2,0.7734,0.0,{'Synergy': 131},None,0,2026-01-28T23:55:29.157598
+mathd_numbertheory_247,6,Success,19.56,2,0.7734,-0.0,{'Synergy': 131},None,0,2026-01-28T23:55:29.243716
+amc12b_2020_p2,0,Success,1.3,1,0.6895,0.0,{'Synergy': 3},None,0,2026-01-28T23:55:31.066214
+amc12b_2020_p2,1,Success,1.16,1,0.6895,0.0,{'Synergy': 3},None,0,2026-01-28T23:55:32.389210
+amc12b_2020_p2,2,Success,1.17,1,0.6895,0.0,{'Synergy': 3},None,0,2026-01-28T23:55:33.981647
+amc12b_2020_p2,3,Success,1.14,1,0.6895,0.0,{'Synergy': 3},None,0,2026-01-28T23:55:35.241373
+amc12b_2020_p2,4,Success,1.16,1,0.6895,0.0,{'Synergy': 3},None,0,2026-01-28T23:55:36.781824
+amc12b_2020_p2,5,Success,1.14,1,0.6895,0.0,{'Synergy': 3},None,0,2026-01-28T23:55:38.073152
+amc12b_2020_p2,6,Success,1.14,1,0.6895,0.0,{'Synergy': 3},None,0,2026-01-28T23:55:39.581410
+amc12b_2020_p2,7,Success,1.16,1,0.6895,0.0,{'Synergy': 3},None,0,2026-01-28T23:55:40.859924
+mathd_numbertheory_247,7,Success,21.26,2,0.7881,0.0,{'Synergy': 144},None,0,2026-01-28T23:55:41.615656
+amc12b_2020_p2,9,Success,0.42,1,0.6895,0.0,{'Synergy': 1},None,0,2026-01-28T23:55:42.171445
+amc12b_2020_p2,8,Success,1.17,1,0.6895,0.0,{'Synergy': 3},None,0,2026-01-28T23:55:42.415060
+mathd_numbertheory_247,8,Success,19.51,2,0.7734,-0.0,{'Synergy': 131},None,0,2026-01-28T23:55:47.407824
+mathd_numbertheory_247,9,Success,19.48,2,0.7734,-0.0,{'Synergy': 131},None,0,2026-01-28T23:55:49.240002
+amc12_2001_p5,1,Fail,38.88,0,0.8806,-99.0,"{'Synergy': 143, 'Structure': 39}",TrustGateReject,0,2026-01-28T23:56:21.431083
+amc12_2001_p5,0,Fail,39.45,0,0.8796,-99.0,"{'Synergy': 143, 'Structure': 39}",TrustGateReject,0,2026-01-28T23:56:21.743201
+amc12_2001_p5,2,Fail,39.98,0,0.8794,-99.0,"{'Synergy': 143, 'Structure': 39}",TrustGateReject,0,2026-01-28T23:56:27.505115
+amc12_2001_p5,3,Fail,39.54,0,0.8793,-99.0,"{'Synergy': 143, 'Structure': 39}",TrustGateReject,0,2026-01-28T23:56:28.911563
+amc12_2001_p5,4,Fail,39.65,0,0.8801,-99.0,"{'Synergy': 143, 'Structure': 39}",TrustGateReject,0,2026-01-28T23:57:01.242598
+amc12_2001_p5,5,Fail,41.08,0,0.8803,-99.0,"{'Synergy': 143, 'Structure': 39}",TrustGateReject,0,2026-01-28T23:57:02.990578
+amc12_2001_p5,6,Fail,39.84,0,0.8804,-99.0,"{'Synergy': 143, 'Structure': 39}",TrustGateReject,0,2026-01-28T23:57:07.460895
+amc12_2001_p5,7,Fail,39.87,0,0.8803,-99.0,"{'Synergy': 143, 'Structure': 39}",TrustGateReject,0,2026-01-28T23:57:08.918091
+amc12_2001_p5,8,Fail,39.65,0,0.879,-99.0,"{'Synergy': 143, 'Structure': 39}",TrustGateReject,0,2026-01-28T23:57:41.338762
+amc12_2001_p5,9,Fail,39.78,0,0.8805,-99.0,"{'Synergy': 143, 'Structure': 39}",TrustGateReject,0,2026-01-28T23:57:42.910707
+mathd_algebra_17,1,Fail,105.85,0,0.7171,-0.0,{'Synergy': 650},TrustGateReject,0,2026-01-28T23:58:54.898968
+mathd_algebra_17,0,Fail,108.1,0,0.7171,-0.0,{'Synergy': 650},TrustGateReject,0,2026-01-28T23:58:55.711952
+mathd_algebra_17,2,Fail,104.45,0,0.7171,0.0,{'Synergy': 650},SearchExhausted,0,2026-01-28T23:59:25.943585
+mathd_algebra_17,3,Fail,106.91,0,0.7171,0.0,{'Synergy': 650},SearchExhausted,0,2026-01-28T23:59:29.965721
+mathd_algebra_17,4,Fail,106.68,0,0.7171,-0.0,{'Synergy': 650},TrustGateReject,0,2026-01-29T00:00:41.745464
+mathd_algebra_17,5,Fail,108.17,0,0.7171,-0.0,{'Synergy': 650},TrustGateReject,0,2026-01-29T00:00:44.039717
+mathd_algebra_17,6,Fail,109.12,0,0.7171,0.0,{'Synergy': 650},SearchExhausted,0,2026-01-29T00:01:15.233346
+mathd_algebra_17,7,Fail,108.69,0,0.7171,0.0,{'Synergy': 650},SearchExhausted,0,2026-01-29T00:01:18.830563
+imo_1992_p1,0,Success,31.39,2,0.8414,-99.0,"{'Synergy': 170, 'Structure': 6}",None,0,2026-01-29T00:01:46.783373
+imo_1992_p1,1,Success,32.3,2,0.8414,-99.0,"{'Synergy': 170, 'Structure': 6}",None,0,2026-01-29T00:01:51.308448
+imo_1992_p1,2,Success,31.0,2,0.8414,-99.0,"{'Synergy': 170, 'Structure': 6}",None,0,2026-01-29T00:02:17.948321
+imo_1992_p1,3,Success,31.69,2,0.8414,-99.0,"{'Synergy': 170, 'Structure': 6}",None,0,2026-01-29T00:02:23.570721
+mathd_algebra_17,8,Fail,107.75,0,0.7171,-0.0,{'Synergy': 650},TrustGateReject,0,2026-01-29T00:02:29.669169
+mathd_algebra_17,9,Fail,110.37,0,0.7171,-0.0,{'Synergy': 650},TrustGateReject,0,2026-01-29T00:02:34.571923
+imo_1992_p1,4,Success,31.32,2,0.8414,-99.0,"{'Synergy': 170, 'Structure': 6}",None,0,2026-01-29T00:02:49.428446
+imo_1992_p1,5,Success,31.64,2,0.8414,-99.0,"{'Synergy': 170, 'Structure': 6}",None,0,2026-01-29T00:02:55.372597
+imo_1992_p1,6,Success,29.39,2,0.8338,-99.0,"{'Synergy': 157, 'Structure': 6}",None,0,2026-01-29T00:02:59.226754
+imo_1992_p1,7,Success,29.57,2,0.8338,-99.0,"{'Synergy': 157, 'Structure': 6}",None,0,2026-01-29T00:03:04.389126
+imo_1992_p1,8,Success,31.17,2,0.8414,-99.0,"{'Synergy': 170, 'Structure': 6}",None,0,2026-01-29T00:03:20.759533
+imo_1992_p1,9,Success,33.01,2,0.8414,-99.0,"{'Synergy': 170, 'Structure': 6}",None,0,2026-01-29T00:03:28.542265
+mathd_numbertheory_764,0,Fail,192.1,0,0.779,-0.0,{'Synergy': 658},TrustGateReject,0,2026-01-29T00:06:11.842142
+mathd_numbertheory_764,1,Fail,197.33,0,0.7789,-0.0,{'Synergy': 658},TrustGateReject,0,2026-01-29T00:06:21.842484
+mathd_numbertheory_764,2,Fail,195.64,0,0.7767,0.0,{'Synergy': 658},SearchExhausted,0,2026-01-29T00:06:36.567412
+mathd_numbertheory_764,3,Fail,197.14,0,0.7781,0.0,{'Synergy': 658},SearchExhausted,0,2026-01-29T00:06:45.851361
+mathd_numbertheory_764,4,Fail,195.89,0,0.7794,-0.0,{'Synergy': 658},TrustGateReject,0,2026-01-29T00:09:27.892487
+mathd_numbertheory_764,5,Fail,198.6,0,0.7768,-0.0,{'Synergy': 658},TrustGateReject,0,2026-01-29T00:09:40.604729
+mathd_numbertheory_764,6,Fail,196.87,0,0.7772,0.0,{'Synergy': 658},SearchExhausted,0,2026-01-29T00:09:53.600200
+mathd_numbertheory_764,7,Fail,202.35,0,0.7789,0.0,{'Synergy': 658},SearchExhausted,0,2026-01-29T00:10:08.399064
+amc12a_2021_p18,0,Fail,134.29,0,0.735,0.0,{'Synergy': 650},SearchExhausted,0,2026-01-29T00:12:08.054070
+amc12a_2021_p18,1,Fail,136.32,0,0.7351,0.0,{'Synergy': 650},SearchExhausted,0,2026-01-29T00:12:24.897264
+mathd_numbertheory_764,8,Fail,212.15,0,0.7785,-0.0,{'Synergy': 658},TrustGateReject,0,2026-01-29T00:13:00.197762
+mathd_numbertheory_764,9,Fail,214.27,0,0.7777,-0.0,{'Synergy': 658},TrustGateReject,0,2026-01-29T00:13:15.051046
+amc12a_2021_p18,2,Fail,124.04,0,0.7353,0.0,{'Synergy': 650},SearchExhausted,0,2026-01-29T00:14:12.313211
+amc12a_2021_p18,3,Fail,127.24,0,0.7349,0.0,{'Synergy': 650},SearchExhausted,0,2026-01-29T00:14:32.291894
+amc12a_2021_p18,4,Fail,125.68,0,0.7353,-0.0,{'Synergy': 650},TrustGateReject,0,2026-01-29T00:15:06.038292
+amc12a_2021_p18,5,Fail,128.07,0,0.7348,-0.0,{'Synergy': 650},TrustGateReject,0,2026-01-29T00:15:23.273941
+amc12a_2021_p18,6,Fail,129.47,0,0.7351,0.0,{'Synergy': 650},SearchExhausted,0,2026-01-29T00:16:22.389702
+mathd_numbertheory_328,0,Success,0.85,1,0.8277,0.0,{'Synergy': 1},None,0,2026-01-29T00:16:23.430974
+mathd_numbertheory_328,1,Success,0.43,1,0.8277,0.0,{'Synergy': 1},None,0,2026-01-29T00:16:24.039663
+mathd_numbertheory_328,2,Success,0.41,1,0.8277,0.0,{'Synergy': 1},None,0,2026-01-29T00:16:24.573677
+mathd_numbertheory_328,3,Success,0.42,1,0.8277,0.0,{'Synergy': 1},None,0,2026-01-29T00:16:25.110444
+mathd_numbertheory_328,4,Success,0.42,1,0.8277,0.0,{'Synergy': 1},None,0,2026-01-29T00:16:25.653842
+mathd_numbertheory_328,5,Success,0.43,1,0.8277,0.0,{'Synergy': 1},None,0,2026-01-29T00:16:26.454710
+mathd_numbertheory_328,6,Success,0.45,1,0.8277,0.0,{'Synergy': 1},None,0,2026-01-29T00:16:27.032898
+mathd_numbertheory_328,7,Success,0.52,1,0.8277,0.0,{'Synergy': 1},None,0,2026-01-29T00:16:27.687341
+mathd_numbertheory_328,8,Success,0.42,1,0.8277,0.0,{'Synergy': 1},None,0,2026-01-29T00:16:28.225762
+mathd_numbertheory_328,9,Success,0.76,1,0.8277,0.0,{'Synergy': 1},None,0,2026-01-29T00:16:29.100902
