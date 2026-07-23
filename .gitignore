@@ -8,17 +8,59 @@ data/*.pth
 data/*.pkl.gz
 data/*.zip
 
+# Small, versioned inference assets required by the reproducible runner.
+!data/edge_index.pt
+!data/node_embeddings.pt
+!data/hgcn_final.pth
+!data/hgcn_refined.pth
+!data/id_to_name.pkl.gz
+!data/node_text_map.pkl.gz
+
 # Model weights
 models/
+
+# Secrets and local credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+**/credentials*
+.codex/
+
+# Python environments and tool caches
+.venv/
+.venv-*/
+.envs/
+venv/
+**/__pycache__/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# Training/inference output
+wandb/
+outputs/
+results/
+checkpoints/
+logs/
+benchmark_reports/
+*.pid
+nohup.out
+
+# Archives should be published as releases, not added to Git.
+*.tar.gz
+*.zip
 
 # Lean build artifacts
 .lake/build/
 *.olean
 
-# Python cache
-__pycache__/
+# Python bytecode
 *.pyc
-.ipynb_checkpoints/
 
 # Mac + misc
 .DS_Store

@@ -439,12 +439,26 @@ class RiemannSearchAgent:
     # =================================================
     # Main Search
     # =================================================
-    def search(self, theorem_decl, max_steps=15):
+    def search(
+        self,
+        theorem_decl,
+        max_steps=15,
+        max_expansions=50,
+        initial_goal_text=None,
+    ):
         trace = []
 
-        base = theorem_decl.split(":= by")[0].strip()
+        base = re.sub(r"\s*:=\s*by\s*$", "", theorem_decl.strip(), flags=re.S)
+        base = re.sub(r"\s*:=\s*$", "", base, flags=re.S)
         base = re.sub(r"^\s*theorem\s+\S+\s*", "example ", base)
-        goal_text = base.split(":", 1)[1].strip()
+        # MiniF2F declarations contain typed binders such as `(x : ℝ)`, so
+        # splitting on the first colon does not recover the goal.  Rebuttal
+        # runners pass the canonical `goal` field from the official dataset.
+        if initial_goal_text:
+            goal_text = initial_goal_text.strip()
+        else:
+            match = re.search(r"\)\s*:\s*(.*)$", base, flags=re.S)
+            goal_text = match.group(1).strip() if match else base.rsplit(":", 1)[-1].strip()
 
         goal = self.analyzer.analyze(goal_text)
         trace.append({"stage": "classify", "struct": str(goal)})
@@ -528,7 +542,7 @@ class RiemannSearchAgent:
                 
                 if len(hist) >= max_steps: continue
                 expanded += 1
-                if expanded > 50: break
+                if expanded > max_expansions: break
 
                 # --- Structural Expansion ---
                 if "∧" in gtext:

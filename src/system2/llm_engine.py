@@ -21,6 +21,7 @@
 
 import os
 import re
+import time
 import torch
 import sys
 from transformers import AutoModelForCausalLM, AutoTokenizer
@@ -132,6 +133,34 @@ class LLMEngine:
             raise e
 
         self.model.eval()
+
+        # Rebuttal experiments need independent stochastic trajectories and
+        # exact accounting.  Defaults preserve the historical greedy behavior.
+        self.temperature = float(os.environ.get("HLP_TEMPERATURE", "0"))
+        self.top_p = float(os.environ.get("HLP_TOP_P", "0.95"))
+        self.max_new_tokens = int(os.environ.get("HLP_MAX_NEW_TOKENS", "80"))
+        self.seed = int(os.environ.get("HLP_SEED", "42"))
+        self.reset_metrics()
+
+    def reset_metrics(self):
+        self._generation_index = 0
+        self.metrics = {
+            "llm_forward_calls": 0,
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "generation_seconds": 0.0,
+        }
+
+    def set_sampling(self, *, seed=None, temperature=None, top_p=None):
+        if seed is not None:
+            self.seed = int(seed)
+        if temperature is not None:
+            self.temperature = float(temperature)
+        if top_p is not None:
+            self.top_p = float(top_p)
+
+    def metrics_snapshot(self):
+        return dict(self.metrics)
 
     # --------------------------------------------------
     # Internal filters
@@ -250,15 +279,41 @@ class LLMEngine:
         #         80 is generous headroom without letting the model ramble.
         # FIX-3: eos_token_id=self._stop_ids — halt at blank line or new
         #         declaration so we never decode past the first tactic.
+        do_sample = self.temperature > 0.0
+        # `transformers.generate` does not accept a per-call Generator on all
+        # supported 4.40.x model classes.  Seed the global CPU/CUDA RNGs
+        # immediately before generation instead; the rebuttal runner assigns a
+        # unique deterministic seed to every (problem, attempt).
+        call_seed = self.seed + self._generation_index
+        self._generation_index += 1
+        torch.manual_seed(call_seed)
+        if torch.cuda.is_available():
+            torch.cuda.manual_seed_all(call_seed)
+        generation_kwargs = {
+            "max_new_tokens": self.max_new_tokens,
+            "num_return_sequences": 1,
+            "do_sample": do_sample,
+            "pad_token_id": self.tokenizer.eos_token_id,
+            "eos_token_id": self._stop_ids,
+        }
+        if do_sample:
+            generation_kwargs["temperature"] = self.temperature
+            generation_kwargs["top_p"] = self.top_p
+
+        started = time.perf_counter()
         with torch.no_grad():
             outputs = self.model.generate(
                 **inputs,
-                max_new_tokens=80,
-                num_return_sequences=1,
-                do_sample=False,            # greedy decoding for stability
-                pad_token_id=self.tokenizer.eos_token_id,
-                eos_token_id=self._stop_ids,
+                **generation_kwargs,
             )
+        if torch.cuda.is_available():
+            torch.cuda.synchronize()
+        elapsed = time.perf_counter() - started
+        generated_tokens = sum(max(0, out.shape[0] - prompt_len) for out in outputs)
+        self.metrics["llm_forward_calls"] += 1
+        self.metrics["prompt_tokens"] += int(prompt_len)
+        self.metrics["completion_tokens"] += int(generated_tokens)
+        self.metrics["generation_seconds"] += float(elapsed)
 
         candidates = []
         for out in outputs:

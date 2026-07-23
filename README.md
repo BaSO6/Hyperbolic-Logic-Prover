@@ -2,12 +2,55 @@
 
 A hyperbolic geometry-based automated theorem prover for Lean 4, combining a **Hyperbolic Graph Convolutional Network (HGCN)** with LLM-guided proof search over Mathlib.
 
-**Achieves 65%+ Pass@1 on miniF2F** (valid split) using Lie-group guided search.
+> **Reproducibility status (July 2026):** the recovered executable is an
+> A*/stepwise system with hyperbolic distance retrieval.  It is not a faithful
+> implementation of the paper's single-trajectory entailment-cone Algorithm 1,
+> and the available checkpoints do not contain a trained Lie policy.  New runs
+> are therefore labelled `recovered_hlp_astar_stepwise`; see
+> [REBUTTAL_README.md](REBUTTAL_README.md) and the machine-readable audit before
+> citing results.
+
+---
+
+## Current reproducible path (recommended)
+
+The `cloud/` suite pins the official DeepSeek-Prover-V1.5 repository, Mathlib
+commit, Lean toolchain, datasets, and Python inference stack.  On a fresh Linux
+CUDA machine:
+
+```bash
+git clone git@github.com:BaSO6/Hyperbolic-Logic-Prover.git
+cd Hyperbolic-Logic-Prover
+bash cloud/bootstrap.sh
+bash cloud/smoke_gpu.sh
+MAX_ATTEMPTS=1 bash cloud/run_rebuttal_n32.sh   # full MiniF2F-test pilot
+MAX_ATTEMPTS=32 bash cloud/run_rebuttal_n32.sh  # resume through N=32
+```
+
+For an SSH-disconnect-safe full run, use `bash cloud/launch_huawei.sh`.  The
+runners retain every attempt and record deterministic seeds, proofs, verifier
+outcomes, wall-clock allocation, token/LLM/Lean call counts, VRAM, Wilson
+intervals, paired solved sets, and exact McNemar tests.
+
+macOS is supported for audit, aggregation, and unit tests, but full model
+inference requires Linux/CUDA:
+
+```bash
+PYTHONPYCACHEPREFIX=/tmp/hlp-pycache \
+  python3 -m unittest -v tests.test_rebuttal_common
+python3 -m rebuttal.audit_reproducibility
+bash -n cloud/*.sh src/system2/run_repl_wrapper.sh
+```
+
+The manual instructions below describe the legacy environment.  They are kept
+for historical scripts; the pinned `cloud/` path above is the supported route
+for new cross-device experiments.
 
 ---
 
 ## Table of Contents
 
+- [Current reproducible path (recommended)](#current-reproducible-path-recommended)
 - [System Requirements](#system-requirements)
 - [Project Structure](#project-structure)
 - [Step 1 — Install Lean 4](#step-1--install-lean-4)
@@ -89,7 +132,7 @@ lake --version    # Lake version 5.0.0-...
 ## Step 2 — Clone the Project
 
 ```bash
-git clone https://github.com/BaSO6/Hyperbolic-Logic-Prover.git
+git clone git@github.com:BaSO6/Hyperbolic-Logic-Prover.git
 cd Hyperbolic-Logic-Prover
 ```
 

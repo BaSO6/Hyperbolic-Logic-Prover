@@ -30,6 +30,21 @@ _PTY_WRITE_CHUNK = 2048
 
 
 class LeanEnv:
+    _global_calls = 0
+    _global_elapsed_s = 0.0
+
+    @classmethod
+    def reset_global_metrics(cls):
+        cls._global_calls = 0
+        cls._global_elapsed_s = 0.0
+
+    @classmethod
+    def global_metrics(cls):
+        return {
+            "lean_calls": int(cls._global_calls),
+            "lean_elapsed_s": float(cls._global_elapsed_s),
+        }
+
     def __init__(self, project_root=None, verbose=True):
         self.proc = None
         self.master = None
@@ -137,6 +152,16 @@ class LeanEnv:
     # --------------------------------------------------
 
     def run_command(self, cmd_str, timeout=300):
+        """Execute one REPL request and account for every call, including
+        initialization, failed tactics, timeouts, and environment restarts."""
+        type(self)._global_calls += 1
+        started = time.perf_counter()
+        try:
+            return self._run_command(cmd_str, timeout=timeout)
+        finally:
+            type(self)._global_elapsed_s += time.perf_counter() - started
+
+    def _run_command(self, cmd_str, timeout=300):
         if not self.proc or self.proc.poll() is not None:
             return {"error": "process_not_running"}
 

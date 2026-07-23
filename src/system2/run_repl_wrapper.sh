@@ -6,8 +6,15 @@
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
 
-MATHLIB_ROOT="$PROJECT_ROOT/data/mathlib4"
-REPL_BIN="$PROJECT_ROOT/tools/repl/.lake/build/bin/repl"
+MATHLIB_ROOT="${HLP_MATHLIB_ROOT:-$PROJECT_ROOT/data/mathlib4}"
+REPL_BIN="${HLP_REPL_BIN:-$MATHLIB_ROOT/.lake/packages/REPL/.lake/build/bin/repl}"
+
+# Fall back to the repository-local REPL for legacy installations.  Rebuttal
+# runs use DeepSeek-Prover-V1.5's pinned Mathlib and bundled REPL so both
+# methods are checked by the same Lean environment.
+if [ ! -f "$REPL_BIN" ]; then
+    REPL_BIN="$PROJECT_ROOT/tools/repl/.lake/build/bin/repl"
+fi
 
 if [ ! -f "$REPL_BIN" ]; then
     echo "{\"error\": \"REPL binary not found at $REPL_BIN\"}" >&2; exit 1

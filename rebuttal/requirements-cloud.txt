@@ -1,0 +1,20 @@
+# Official DeepSeek-Prover-V1.5 inference stack.
+torch==2.2.1
+transformers==4.40.1
+vllm==0.4.1
+flash_attn==2.6.3
+accelerate==0.33.0
+numpy==1.26.4
+pandas==2.2.3
+tabulate==0.9.0
+termcolor==2.4.0
+easydict==1.13
+pytz==2024.2
+
+# Recovered HLP inference dependencies; PyG/DGL are not needed at inference.
+sentence-transformers==2.7.0
+scipy==1.13.1
+scikit-learn==1.5.2
+matplotlib==3.9.2
+psutil==6.1.0
+huggingface-hub==0.26.5
