@@ -19,6 +19,20 @@ FVxH 的 Questions 2/4/6，并为 Question 3 准备 ProofNet 测试。
 因此本套件把结果固定标记为 `recovered_hlp_astar_stepwise`，不会把它冒充
 paper-strict HLP。`python -m rebuttal.audit_reproducibility` 会自动阻止误标。
 
+服务器清空后新增了一套**明确标为重建**的 corrected-cone 实验。它不冒充原始
+训练结果，主要用于回答 meta-review 的 cone 方向问题：
+
+- 用 cone apex 处的角，而不是原点夹角；
+- 正样本按 `premise → theorem` 训练；
+- 检索 premise 时检查 `theorem ∈ Cone(premise)`；
+- 固定 encoder/search，只比较 distance、origin-forward、apex-forward 和
+  corrected-inverse 四臂；
+- 训练前排除 benchmark test 声明，并在 held-out dependency edges 上先测
+  recall@32/MRR，再跑 Lean 验证成功率。
+
+数学定义、claim 边界和输出解释见
+`rebuttal/CORRECTED_CONE_PROTOCOL.md`。
+
 ## 本地能做什么
 
 MacBook Pro 可以做、而且已经通过：
@@ -83,6 +97,28 @@ JSONL 是逐行 fsync、按 `(method, problem, attempt)` 续跑的；中断后�
 已完成项。不要删除 `results/rebuttal/{native,hlp}/results.jsonl`。
 
 如果希望一键直接跑满，使用前面的 `cloud/launch_huawei.sh` 即可。
+
+## Corrected cone 四卡一键重建
+
+新的四卡 detached 流程为：
+
+```bash
+bash cloud/launch_corrected_cone_rebuttal.sh
+tail -f results/rebuttal/corrected_cone_run.log
+```
+
+默认会 bootstrap、训练/续训、做 held-out link diagnostics、跑独立的 2 题四臂
+smoke，随后四张卡各跑一个 arm 的 MiniF2F-test N=1。要把官方 native 和最佳
+corrected-inverse 都续跑到 N=32：
+
+```bash
+RUN_NATIVE_FRONTIER=1 RUN_CORRECTED_INVERSE_N32=1 \
+  bash cloud/launch_corrected_cone_rebuttal.sh
+```
+
+四臂不全部跑 N=32：先用 N=1 判断方向是否有效，只把预注册的主 arm
+`corrected_inverse` 与 official native 跑满，节约 rebuttal 时间。ProofNet 的
+186 行中有 5 行重名；runner 会生成稳定 occurrence ID，保证不会在续跑时覆盖。
 
 ## 单机 4×A100
 

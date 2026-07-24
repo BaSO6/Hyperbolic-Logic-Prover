@@ -27,6 +27,8 @@ CONSISTENT_MANIFEST_FIELDS = (
     "model_config_sha256",
     "checkpoint_sha256",
     "graph_embeddings_sha256",
+    "corrected_training_manifest_sha256",
+    "retrieval_mode",
 )
 
 

@@ -85,3 +85,22 @@ provenance 不足，撤回该表及 D.10 的 lift，不把它作为支持性证�
 
 这会牺牲一部分原始 claim，但比用不可复现结果硬顶更可能挽回 reviewer 对原创性的
 正面评价。
+
+## Meta-review 的 cone 方向：现在可以怎样回答
+
+Reviewer 对“为什么要往后看”的质疑里混合了两个层次。逻辑依赖边确实是
+`premise → theorem`；但在给定当前 theorem 检索 premise 时，必须对每个候选
+premise 检查 `theorem ∈ Cone(premise)`。因此计算看起来是从 query 反查 cone
+apex，却没有反转逻辑蕴含方向。
+
+新增实验固定同一 reconstructed encoder 和同一 proof-search harness，只改变：
+
+1. embedding distance；
+2. origin-angle + query-forward；
+3. apex-angle + query-forward；
+4. apex-angle + candidate-premise-to-query（corrected inverse）。
+
+优先报告 held-out dependency recall@32/MRR 和 cone containment，再报告 N=1
+verified proof success；只有 corrected inverse 同时优于合理 controls 时，才把它
+作为 rebuttal 证据。完整的 N=32 只给最强 corrected arm 和官方 native baseline，
+避免把四个昂贵 arms 全跑到 N=32。

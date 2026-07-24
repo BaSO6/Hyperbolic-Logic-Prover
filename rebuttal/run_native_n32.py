@@ -17,6 +17,7 @@ from rebuttal.common import (
     selected_problems,
     sha256,
     sharded_output_path,
+    unique_problem_ids,
     validate_attempt_bound,
     validate_resume_manifest,
     validate_shard,
@@ -101,6 +102,7 @@ def main() -> int:
     problems = indexed_problem_shard(
         all_problems, args.num_shards, args.shard_index
     )
+    problem_ids = unique_problem_ids(all_problems)
     if not problems:
         raise SystemExit(
             f"Shard {args.shard_index}/{args.num_shards} contains no problems."
@@ -120,7 +122,10 @@ def main() -> int:
         "num_shards": args.num_shards,
         "shard_index": args.shard_index,
         "problem_indices": [problem_index for problem_index, _ in problems],
-        "problem_names": [problem["name"] for _, problem in problems],
+        "problem_names": [
+            problem_ids[problem_index] for problem_index, _ in problems
+        ],
+        "theorem_names": [problem["name"] for _, problem in problems],
         "expected_count": args.expected_count,
         "max_attempts": args.max_attempts,
         "seed": args.seed,
@@ -179,7 +184,7 @@ def main() -> int:
             pending = [
                 (problem_index, problem)
                 for problem_index, problem in problems
-                if (problem["name"], attempt) not in done
+                if (problem_ids[problem_index], attempt) not in done
             ]
             if not pending:
                 print(f"Attempt {attempt}: already complete")
@@ -222,6 +227,7 @@ def main() -> int:
                     generated.append(
                         {
                             "problem_index": problem_index,
+                            "problem_id": problem_ids[problem_index],
                             "problem": problem,
                             "attempt_seed": attempt_seed,
                             "proof_code": proof_code,
@@ -258,7 +264,8 @@ def main() -> int:
                     {
                         "schema_version": 1,
                         "method": METHOD,
-                        "problem": item["problem"]["name"],
+                        "problem": item["problem_id"],
+                        "theorem_name": item["problem"]["name"],
                         "problem_index": item["problem_index"],
                         "split": item["problem"]["split"],
                         "attempt": attempt,

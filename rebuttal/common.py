@@ -6,6 +6,7 @@ import os
 import platform
 import subprocess
 import tempfile
+from collections import Counter, defaultdict
 from pathlib import Path
 from typing import Any, Iterable
 
@@ -73,6 +74,22 @@ def selected_problems(
     return problems[:limit] if limit else problems
 
 
+def unique_problem_ids(problems: list[dict[str, Any]]) -> list[str]:
+    """Return stable IDs while preserving ordinary unique theorem names."""
+    counts = Counter(str(problem["name"]) for problem in problems)
+    occurrences: dict[str, int] = defaultdict(int)
+    identifiers = []
+    for problem in problems:
+        name = str(problem["name"])
+        occurrences[name] += 1
+        identifiers.append(
+            name
+            if counts[name] == 1
+            else f"{name}__occurrence_{occurrences[name]:02d}"
+        )
+    return identifiers
+
+
 def validate_shard(num_shards: int, shard_index: int) -> None:
     if num_shards < 1:
         raise ValueError("--num-shards must be at least 1")
@@ -122,6 +139,15 @@ def validate_resume_manifest(
         )
     with manifest_path.open("r", encoding="utf-8") as handle:
         previous = json.load(handle)
+    if (
+        "max_attempts" in previous
+        and "max_attempts" in metadata
+        and int(metadata["max_attempts"]) < int(previous["max_attempts"])
+    ):
+        raise ValueError(
+            f"Refusing to reduce max_attempts for existing results in {output}: "
+            f"{previous['max_attempts']} -> {metadata['max_attempts']}"
+        )
     differences = [
         field
         for field in stable_fields

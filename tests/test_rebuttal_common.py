@@ -9,12 +9,19 @@ from rebuttal.common import (
     indexed_problem_shard,
     selected_problems,
     sharded_output_path,
+    unique_problem_ids,
     validate_attempt_bound,
     validate_resume_manifest,
     validate_shard,
 )
 from rebuttal.estimate_runtime import estimate
 from rebuttal.merge_shards import merge_shards
+from rebuttal.train_corrected_cones import (
+    load_directed_graph,
+    split_edges,
+    stable_bucket,
+)
+from rebuttal.validate_results import validate_results
 
 
 class RebuttalCommonTests(unittest.TestCase):
@@ -34,6 +41,18 @@ class RebuttalCommonTests(unittest.TestCase):
                 [row["name"] for row in selected_problems(dataset, "test")],
                 ["a", "b"],
             )
+
+    def test_problem_ids_only_disambiguate_duplicate_names(self):
+        problems = [
+            {"name": "a"},
+            {"name": "b"},
+            {"name": "b"},
+            {"name": "c"},
+        ]
+        self.assertEqual(
+            unique_problem_ids(problems),
+            ["a", "b__occurrence_01", "b__occurrence_02", "c"],
+        )
 
     def test_summary_uses_cumulative_attempt_success(self):
         rows = []
@@ -185,9 +204,107 @@ class RebuttalCommonTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 validate_resume_manifest(
                     output,
+                    {"method": "m", "seed": 7, "max_attempts": 0},
+                    ("method", "seed"),
+                )
+            with self.assertRaises(ValueError):
+                validate_resume_manifest(
+                    output,
                     {"method": "m", "seed": 8, "max_attempts": 32},
                     ("method", "seed"),
                 )
+
+    def test_corrected_graph_reverses_dependency_edges_and_excludes_benchmark(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            proof_path = root / "proof.json"
+            benchmark_path = root / "benchmark.jsonl"
+            proof_path.write_text(
+                json.dumps(
+                    {
+                        "Premise": {"used_lemmas": []},
+                        "Theorem": {
+                            "used_lemmas": ["Premise", "ExternalPremise"]
+                        },
+                        "HeldOut": {"used_lemmas": ["Premise"]},
+                    }
+                ),
+                encoding="utf-8",
+            )
+            benchmark_path.write_text(
+                json.dumps({"name": "HeldOut", "split": "test"}) + "\n",
+                encoding="utf-8",
+            )
+            _, names, edges, report = load_directed_graph(
+                proof_path, [benchmark_path], "test"
+            )
+            indices = {name: index for index, name in enumerate(names)}
+            self.assertEqual(
+                names, ["ExternalPremise", "Premise", "Theorem"]
+            )
+            self.assertEqual(
+                edges,
+                [
+                    (indices["ExternalPremise"], indices["Theorem"]),
+                    (indices["Premise"], indices["Theorem"]),
+                ],
+            )
+            self.assertEqual(report["premise_only_nodes"], 1)
+            self.assertEqual(report["excluded_graph_nodes"], 1)
+            self.assertEqual(report["excluded_incident_edges"], 1)
+
+    def test_corrected_edge_split_is_deterministic_and_complete(self):
+        names = ["a", "b", "c"]
+        edges = [(0, 1), (0, 2), (1, 2)]
+        first = split_edges(names, edges)
+        second = split_edges(names, edges)
+        self.assertEqual(first, second)
+        self.assertEqual(
+            sorted(edge for values in first.values() for edge in values),
+            edges,
+        )
+        self.assertEqual(stable_bucket("a", "b"), stable_bucket("a", "b"))
+
+    def test_validate_results_requires_exact_attempt_grid(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            atomic_json(
+                root / "manifest.json",
+                {
+                    "method": "m",
+                    "split": "test",
+                    "total_problem_count": 2,
+                    "max_attempts": 2,
+                    "num_shards": 1,
+                    "seed": 7,
+                    "problem_indices": [0, 1],
+                    "problem_names": ["p0", "p1"],
+                },
+            )
+            rows = [
+                {
+                    "method": "m",
+                    "split": "test",
+                    "problem": f"p{problem_index}",
+                    "problem_index": problem_index,
+                    "attempt": attempt,
+                    "attempt_seed": 7 + attempt * 1_000_003 + problem_index,
+                }
+                for problem_index in range(2)
+                for attempt in (1, 2)
+            ]
+            (root / "results.jsonl").write_text(
+                "".join(json.dumps(row) + "\n" for row in rows),
+                encoding="utf-8",
+            )
+            report = validate_results(root / "results.jsonl", 2, 2)
+            self.assertTrue(report["valid"])
+            (root / "results.jsonl").write_text(
+                "".join(json.dumps(row) + "\n" for row in rows[:-1]),
+                encoding="utf-8",
+            )
+            with self.assertRaises(ValueError):
+                validate_results(root / "results.jsonl", 2, 2)
 
     def test_runtime_estimate_scales_problem_attempts(self):
         with tempfile.TemporaryDirectory() as directory:

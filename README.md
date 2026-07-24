@@ -9,6 +9,13 @@ A hyperbolic geometry-based automated theorem prover for Lean 4, combining a **H
 > are therefore labelled `recovered_hlp_astar_stepwise`; see
 > [REBUTTAL_README.md](REBUTTAL_README.md) and the machine-readable audit before
 > citing results.
+>
+> A separate corrected entailment-cone implementation has now been
+> reconstructed for the rebuttal. It trains directional premise-to-theorem
+> cones, tests inverse-cone premise retrieval, excludes benchmark test
+> declarations, and is deliberately labelled as a new reconstruction rather
+> than the lost original. See
+> [CORRECTED_CONE_PROTOCOL.md](rebuttal/CORRECTED_CONE_PROTOCOL.md).
 
 ---
 
@@ -32,6 +39,23 @@ On a single server with four visible GPUs, use:
 ```bash
 MAX_ATTEMPTS=1 bash cloud/run_rebuttal_4gpu.sh
 MAX_ATTEMPTS=32 bash cloud/run_rebuttal_4gpu.sh
+```
+
+For the reviewer-requested cone-direction ablation, including training,
+held-out dependency diagnostics, a separate smoke test, and four proof-search
+arms on four GPUs:
+
+```bash
+bash cloud/launch_corrected_cone_rebuttal.sh
+tail -f results/rebuttal/corrected_cone_run.log
+```
+
+To extend the detached run through both native DeepSeek and corrected
+inverse-cone \(N=32\) frontiers:
+
+```bash
+RUN_NATIVE_FRONTIER=1 RUN_CORRECTED_INVERSE_N32=1 \
+  bash cloud/launch_corrected_cone_rebuttal.sh
 ```
 
 This runs four deterministic problem shards (one process and one model replica

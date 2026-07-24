@@ -20,6 +20,7 @@ import sys
 import re
 import heapq
 import gzip
+import json
 import pickle
 import itertools
 from collections import defaultdict
@@ -45,6 +46,12 @@ os.environ["TOKENIZERS_PARALLELISM"] = "false"
 # -------------------------------------------------
 from src.system1.manifold_math import PoincareBall
 from src.system1.operators import LogicalLieAlgebra
+from src.system1.corrected_cone_model import CorrectedConeGoalEncoder
+from src.system1.entailment_cones import (
+    cone_energy,
+    cone_rank_scores,
+    origin_cone_energy,
+)
 from src.system2.lean_interaction import LeanEnv
 from src.system2.llm_engine import LLMEngine
 from src.system2.tactic_encoder import TacticEncoder
@@ -189,49 +196,115 @@ class HyperbolicEnergy:
 class RiemannSearchAgent:
     def __init__(self, hgcn_ckpt, llm_path, device="cuda"):
         self.device = device
-        self.counter = itertools.count() 
+        self.counter = itertools.count()
+        self.retrieval_strategy = os.environ.get(
+            "HLP_RETRIEVAL_MODE", "recovered_distance"
+        )
+        corrected_strategies = {
+            "corrected_distance",
+            "paper_origin_forward",
+            "corrected_apex_forward",
+            "corrected_inverse",
+        }
+        valid_strategies = corrected_strategies | {"recovered_distance"}
+        if self.retrieval_strategy not in valid_strategies:
+            raise ValueError(
+                f"Unknown HLP_RETRIEVAL_MODE={self.retrieval_strategy}; "
+                f"choose one of {sorted(valid_strategies)}"
+            )
 
         # ---- Knowledge Graph ----
         data_dir = os.path.join(project_root, "data")
-        refined = os.path.join(data_dir, "hgcn_refined.pth")
-        if os.path.exists(refined):
-            hgcn_ckpt = refined
-            print("   [System1] Using refined checkpoint")
-
         self.idx_to_name = []
         self.graph_emb = None
         self.retrieval_mode = "none"
+        self.cone_k = 0.1
+        self.cone_epsilon = 0.1
 
-        id_map = os.path.join(data_dir, "id_to_name.pkl.gz")
-        old_map = os.path.join(data_dir, "node_text_map.pkl.gz")
-        
-        if os.path.exists(id_map):
-            with gzip.open(id_map, "rb") as f:
-                m = pickle.load(f)
-                if isinstance(m, dict):
-                    max_idx = max(m.keys())
-                    self.idx_to_name = [""] * (max_idx + 1)
-                    for k, v in m.items(): self.idx_to_name[k] = v
-                else:
-                    self.idx_to_name = m
-        elif os.path.exists(old_map):
-            with gzip.open(old_map, "rb") as f:
-                self.idx_to_name = list(pickle.load(f).keys())
-
-        emb_path = os.path.join(data_dir, "node_embeddings.pt")
-        if self.idx_to_name and os.path.exists(emb_path):
+        if self.retrieval_strategy in corrected_strategies:
+            corrected_dir = os.environ.get(
+                "HLP_CORRECTED_CONE_DIR",
+                os.path.join(project_root, "results/rebuttal/corrected_cone"),
+            )
+            names_path = os.path.join(corrected_dir, "node_names.json.gz")
+            emb_path = os.path.join(corrected_dir, "node_embeddings.pt")
+            model_checkpoint = os.path.join(
+                corrected_dir, "model_checkpoint.pt"
+            )
+            manifest_path = os.path.join(
+                corrected_dir, "training_manifest.json"
+            )
+            for required in (
+                names_path,
+                emb_path,
+                model_checkpoint,
+                manifest_path,
+            ):
+                if not os.path.isfile(required):
+                    raise FileNotFoundError(
+                        f"Corrected-cone artifact missing: {required}"
+                    )
+            with gzip.open(names_path, "rt", encoding="utf-8") as handle:
+                self.idx_to_name = json.load(handle)
             self.graph_emb = torch.load(emb_path, map_location=device)
             self.retrieval_mode = "hyperbolic"
-            print(f"   [System1] Hyperbolic Embeddings Loaded ({len(self.graph_emb)} nodes)")
+            with open(manifest_path, "r", encoding="utf-8") as handle:
+                manifest = json.load(handle)
+            self.cone_k = float(manifest["cone_k"])
+            self.cone_epsilon = float(manifest["epsilon"])
+            sentence_model = os.path.join(
+                project_root, "models", "all-MiniLM-L6-v2"
+            )
+            self.goal_encoder = CorrectedConeGoalEncoder(
+                model_checkpoint,
+                sentence_model,
+                device=device,
+            )
+            print(
+                f"   [System1] Corrected cone artifacts loaded "
+                f"({len(self.graph_emb)} nodes, strategy="
+                f"{self.retrieval_strategy})"
+            )
+        else:
+            refined = os.path.join(data_dir, "hgcn_refined.pth")
+            if os.path.exists(refined):
+                hgcn_ckpt = refined
+                print("   [System1] Using refined checkpoint")
+            id_map = os.path.join(data_dir, "id_to_name.pkl.gz")
+            old_map = os.path.join(data_dir, "node_text_map.pkl.gz")
+            if os.path.exists(id_map):
+                with gzip.open(id_map, "rb") as handle:
+                    mapping = pickle.load(handle)
+                    if isinstance(mapping, dict):
+                        max_idx = max(mapping.keys())
+                        self.idx_to_name = [""] * (max_idx + 1)
+                        for index, name in mapping.items():
+                            self.idx_to_name[index] = name
+                    else:
+                        self.idx_to_name = mapping
+            elif os.path.exists(old_map):
+                with gzip.open(old_map, "rb") as handle:
+                    self.idx_to_name = list(pickle.load(handle).keys())
+            emb_path = os.path.join(data_dir, "node_embeddings.pt")
+            if self.idx_to_name and os.path.exists(emb_path):
+                self.graph_emb = torch.load(emb_path, map_location=device)
+                self.retrieval_mode = "hyperbolic"
+                print(
+                    f"   [System1] Recovered hyperbolic embeddings loaded "
+                    f"({len(self.graph_emb)} nodes)"
+                )
+            self.goal_encoder = GoalEncoder(hgcn_ckpt, device)
 
         # ---- Models ----
-        self.goal_encoder = GoalEncoder(hgcn_ckpt, device)
         self.c = self.goal_encoder.c
         self.manifold = PoincareBall(self.c)
         self.energy = HyperbolicEnergy(self.c)
 
-        lie_dim = 16
-        if self.goal_encoder.use_hgcn:
+        lie_dim = getattr(self.goal_encoder, "output_dim", 16)
+        if (
+            not hasattr(self.goal_encoder, "output_dim")
+            and self.goal_encoder.use_hgcn
+        ):
             lie_dim = self.goal_encoder.projector.semantic_proj.weight.shape[0]
 
         self.lie = LogicalLieAlgebra(lie_dim, 64, c=self.c).to(device)
@@ -247,6 +320,28 @@ class RiemannSearchAgent:
 
         self.analyzer = GoalAnalyzer()
         self.state_visits = defaultdict(int)
+        self.reset_retrieval_metrics()
+
+    def reset_retrieval_metrics(self):
+        self._retrieval_calls = 0
+        self._retrieval_contained_candidates = 0
+        self._retrieval_selected_inside = 0
+        self._retrieval_selected_fallback = 0
+
+    def retrieval_metrics_snapshot(self):
+        return {
+            "retrieval_strategy": self.retrieval_strategy,
+            "retrieval_calls": int(self._retrieval_calls),
+            "retrieval_contained_candidates": int(
+                self._retrieval_contained_candidates
+            ),
+            "retrieval_selected_inside": int(
+                self._retrieval_selected_inside
+            ),
+            "retrieval_selected_fallback": int(
+                self._retrieval_selected_fallback
+            ),
+        }
 
     # ---------------------------
     # Normalize Lean goal
@@ -297,10 +392,51 @@ class RiemannSearchAgent:
             if self.retrieval_mode == "hyperbolic":
                 d = self.manifold.dist(q, self.graph_emb)
                 if d.dim() == 1: d = d.unsqueeze(0)
-                _, idxs = torch.topk(d, k=k * 8, largest=False)
+                if self.retrieval_strategy in {
+                    "recovered_distance",
+                    "corrected_distance",
+                }:
+                    scores = d
+                    membership = torch.zeros_like(d, dtype=torch.bool)
+                elif self.retrieval_strategy == "paper_origin_forward":
+                    violation = origin_cone_energy(
+                        q,
+                        self.graph_emb,
+                        cone_k=self.cone_k,
+                        epsilon=self.cone_epsilon,
+                    )
+                    scores, membership = cone_rank_scores(violation, d)
+                elif self.retrieval_strategy == "corrected_apex_forward":
+                    violation = cone_energy(
+                        q,
+                        self.graph_emb,
+                        cone_k=self.cone_k,
+                        epsilon=self.cone_epsilon,
+                    )
+                    scores, membership = cone_rank_scores(violation, d)
+                else:
+                    violation = cone_energy(
+                        self.graph_emb,
+                        q,
+                        cone_k=self.cone_k,
+                        epsilon=self.cone_epsilon,
+                    )
+                    scores, membership = cone_rank_scores(violation, d)
+                rank_count = min(max(k * 32, k), scores.numel())
+                _, idxs = torch.topk(
+                    scores.flatten(),
+                    k=rank_count,
+                    largest=False,
+                )
             else:
                 scores = torch.mm(q, self.graph_emb.T)
-                _, idxs = torch.topk(scores, k=k * 8, largest=True)
+                rank_count = min(max(k * 32, k), scores.numel())
+                _, idxs = torch.topk(
+                    scores.flatten(),
+                    k=rank_count,
+                    largest=True,
+                )
+                membership = torch.zeros_like(scores, dtype=torch.bool)
 
         # Domain filter: infer goal domain to reject off-domain hints
         goal_low = query_text.lower()
@@ -310,6 +446,8 @@ class RiemannSearchAgent:
         is_arith = any(c in query_text for c in ["=", "<", "\u2264", ">", "\u2265"])
 
         out = []
+        selected_inside = 0
+        selected_fallback = 0
         for i in idxs.flatten().tolist():
             if len(out) >= k:
                 break
@@ -333,6 +471,10 @@ class RiemannSearchAgent:
             # Accept known-good general lemmas immediately
             if name in self._GENERAL_LEMMAS:
                 out.append(name)
+                if bool(membership.flatten()[i]):
+                    selected_inside += 1
+                else:
+                    selected_fallback += 1
                 continue
             # Domain plausibility: for arithmetic goals, reject lemmas from
             # clearly unrelated areas (topology, category theory, etc.)
@@ -346,6 +488,14 @@ class RiemannSearchAgent:
                 )):
                     continue
             out.append(name)
+            if bool(membership.flatten()[i]):
+                selected_inside += 1
+            else:
+                selected_fallback += 1
+        self._retrieval_calls += 1
+        self._retrieval_contained_candidates += int(membership.sum().item())
+        self._retrieval_selected_inside += selected_inside
+        self._retrieval_selected_fallback += selected_fallback
         return out
 
     # ---------------------------

@@ -14,6 +14,23 @@ pass. The current recovered artifact is expected to be labelled
 `recovered-system`, because it uses A*, distance top-k retrieval, randomly
 initialised Lie/tactic heads, and lacks a cone-filter implementation.
 
+## E0b — reconstructed cone-direction gate (meta-review concern)
+
+The corrected cone suite is specified in
+`rebuttal/CORRECTED_CONE_PROTOCOL.md`. It is a new reconstruction, not the lost
+original artifact. It corrects three independently testable issues:
+
+- the angle is measured at the cone apex rather than at the origin;
+- dependency positives are oriented premise-to-theorem;
+- premise retrieval scores whether the query theorem lies in each candidate
+  premise's cone, rather than whether candidates lie in the query cone.
+
+The pre-registered four-arm comparison holds the reconstructed encoder and
+proof-search harness fixed: distance, origin-angle forward, apex-angle forward,
+and corrected inverse. First report held-out dependency retrieval; then report
+verified proof success. This evidence may support the cone-direction
+clarification, but cannot establish the unavailable trained Lie navigator.
+
 ## E1 — matched-compute MiniF2F frontier (reviewer Questions 2 and 6)
 
 Hardware, model checkpoint, dataset order, and Lean/Mathlib commit are recorded in
@@ -53,6 +70,8 @@ added after E1, not mixed across valid/test.
 
 The bundled official DeepSeek ProofNet Lean4 JSONL is runnable with
 `cloud/run_proofnet_n1.sh` (official test split, 186 problems).
+Five rows repeat theorem names; the runners now assign stable occurrence IDs so
+all 186 rows remain distinct in resume, merge, and aggregation logic.
 However, the recovered repository contains no executable Neural ODE/RGD variants.
 A three-way SO(n,1)/ODE/RGD claim must remain blocked until implementations and
 their trained checkpoints are supplied. Do not manufacture these variants from
