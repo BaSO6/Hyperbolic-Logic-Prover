@@ -27,7 +27,20 @@ MAX_ATTEMPTS=1 bash cloud/run_rebuttal_n32.sh   # full MiniF2F-test pilot
 MAX_ATTEMPTS=32 bash cloud/run_rebuttal_n32.sh  # resume through N=32
 ```
 
-For an SSH-disconnect-safe full run, use `bash cloud/launch_huawei.sh`.  The
+On a single server with four visible GPUs, use:
+
+```bash
+MAX_ATTEMPTS=1 bash cloud/run_rebuttal_4gpu.sh
+MAX_ATTEMPTS=32 bash cloud/run_rebuttal_4gpu.sh
+```
+
+This runs four deterministic problem shards (one process and one model replica
+per GPU), then refuses to aggregate unless all shards have the exact expected
+problem/attempt coverage and matching manifests. `bootstrap_and_run.sh`
+automatically selects this path when it sees at least four GPUs; set
+`FORCE_SINGLE_GPU=1` only when intentionally testing the one-GPU path.
+
+For an SSH-disconnect-safe full run, use `bash cloud/launch_huawei.sh`. The
 runners retain every attempt and record deterministic seeds, proofs, verifier
 outcomes, wall-clock allocation, token/LLM/Lean call counts, VRAM, Wilson
 intervals, paired solved sets, and exact McNemar tests.

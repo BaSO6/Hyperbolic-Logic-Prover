@@ -13,11 +13,15 @@ from rebuttal.common import (
     append_jsonl,
     atomic_json,
     completed_attempts,
+    indexed_problem_shard,
     project_root,
     runtime_manifest,
     selected_problems,
     sha256,
+    sharded_output_path,
     validate_attempt_bound,
+    validate_resume_manifest,
+    validate_shard,
 )
 
 
@@ -51,6 +55,8 @@ def main() -> int:
     parser.add_argument("--max-steps", type=int, default=64)
     parser.add_argument("--max-expansions", type=int, default=50)
     parser.add_argument("--limit", type=int, default=0)
+    parser.add_argument("--num-shards", type=int, default=1)
+    parser.add_argument("--shard-index", type=int, default=0)
     parser.add_argument("--seed", type=int, default=20260724)
     parser.add_argument("--temperature", type=float, default=1.0)
     parser.add_argument("--top-p", type=float, default=0.95)
@@ -61,6 +67,7 @@ def main() -> int:
     parser.add_argument("--save-failure-traces", action="store_true")
     args = parser.parse_args()
     validate_attempt_bound(args.max_attempts)
+    validate_shard(args.num_shards, args.shard_index)
 
     method = (
         RECOVERED_METHOD
@@ -69,18 +76,29 @@ def main() -> int:
     )
     model_path = Path(args.model).expanduser().resolve()
     checkpoint = Path(args.checkpoint).expanduser().resolve()
+    dataset_path = args.dataset.expanduser().resolve()
+    output_path = sharded_output_path(
+        args.output.expanduser().resolve(), args.num_shards, args.shard_index
+    )
     if not model_path.exists():
         raise SystemExit(f"Model not found: {model_path}")
     if not checkpoint.exists():
         raise SystemExit(f"Checkpoint not found: {checkpoint}")
 
-    problems = selected_problems(args.dataset.resolve(), args.split, args.limit)
-    if not problems:
+    all_problems = selected_problems(dataset_path, args.split, args.limit)
+    if not all_problems:
         raise SystemExit("No problems selected.")
-    if args.limit == 0 and len(problems) != args.expected_count:
+    if args.limit == 0 and len(all_problems) != args.expected_count:
         raise SystemExit(
             f"Refusing full run: expected {args.expected_count} {args.split} "
-            f"problems, got {len(problems)}"
+            f"problems, got {len(all_problems)}"
+        )
+    problems = indexed_problem_shard(
+        all_problems, args.num_shards, args.shard_index
+    )
+    if not problems:
+        raise SystemExit(
+            f"Shard {args.shard_index}/{args.num_shards} contains no problems."
         )
 
     os.environ["HLP_TEMPERATURE"] = str(args.temperature)
@@ -94,42 +112,69 @@ def main() -> int:
     from src.system2.lean_interaction import LeanEnv
     from src.system2.lie_search import RiemannSearchAgent
 
-    args.output.parent.mkdir(parents=True, exist_ok=True)
-    trace_dir = args.output.parent / "traces"
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    trace_dir = output_path.parent / "traces"
     trace_dir.mkdir(parents=True, exist_ok=True)
-    done = completed_attempts(args.output, method)
-    atomic_json(
-        args.output.parent / "manifest.json",
-        {
-            **runtime_manifest(),
-            "method": method,
-            "paper_claim_compatible": False,
-            "compatibility_warning": (
-                "Recovered code uses A* and distance top-k retrieval, does not "
-                "load a trained Lie policy checkpoint, and is not Algorithm 1."
-            ),
-            "dataset": str(args.dataset.resolve()),
-            "dataset_sha256": sha256(args.dataset.resolve()),
-            "checkpoint": str(checkpoint),
-            "checkpoint_sha256": sha256(checkpoint),
-            "graph_embeddings_sha256": sha256(root / "data/node_embeddings.pt"),
-            "model_config_sha256": (
-                sha256(model_path / "config.json")
-                if (model_path / "config.json").is_file()
-                else None
-            ),
-            "split": args.split,
-            "problem_count": len(problems),
-            "expected_count": args.expected_count,
-            "max_attempts": args.max_attempts,
-            "max_steps": args.max_steps,
-            "max_expansions": args.max_expansions,
-            "temperature": args.temperature,
-            "top_p": args.top_p,
-            "max_new_tokens": args.max_new_tokens,
-            "seed": args.seed,
-        },
+    done = completed_attempts(output_path, method)
+    metadata = {
+        **runtime_manifest(),
+        "method": method,
+        "paper_claim_compatible": False,
+        "compatibility_warning": (
+            "Recovered code uses A* and distance top-k retrieval, does not "
+            "load a trained Lie policy checkpoint, and is not Algorithm 1."
+        ),
+        "dataset": str(dataset_path),
+        "dataset_sha256": sha256(dataset_path),
+        "checkpoint": str(checkpoint),
+        "checkpoint_sha256": sha256(checkpoint),
+        "graph_embeddings_sha256": sha256(root / "data/node_embeddings.pt"),
+        "model_config_sha256": (
+            sha256(model_path / "config.json")
+            if (model_path / "config.json").is_file()
+            else None
+        ),
+        "split": args.split,
+        "problem_count": len(problems),
+        "total_problem_count": len(all_problems),
+        "shard_problem_count": len(problems),
+        "num_shards": args.num_shards,
+        "shard_index": args.shard_index,
+        "problem_indices": [problem_index for problem_index, _ in problems],
+        "problem_names": [problem["name"] for _, problem in problems],
+        "expected_count": args.expected_count,
+        "max_attempts": args.max_attempts,
+        "max_steps": args.max_steps,
+        "max_expansions": args.max_expansions,
+        "temperature": args.temperature,
+        "top_p": args.top_p,
+        "max_new_tokens": args.max_new_tokens,
+        "seed": args.seed,
+    }
+    validate_resume_manifest(
+        output_path,
+        metadata,
+        (
+            "method",
+            "dataset_sha256",
+            "checkpoint_sha256",
+            "graph_embeddings_sha256",
+            "model_config_sha256",
+            "split",
+            "total_problem_count",
+            "num_shards",
+            "shard_index",
+            "problem_indices",
+            "problem_names",
+            "max_steps",
+            "max_expansions",
+            "temperature",
+            "top_p",
+            "max_new_tokens",
+            "seed",
+        ),
     )
+    atomic_json(output_path.parent / "manifest.json", metadata)
 
     agent = RiemannSearchAgent(str(checkpoint), str(model_path), device="cuda")
     if args.mode == "no_retrieval":
@@ -137,11 +182,11 @@ def main() -> int:
         agent.retrieval_mode = "none"
         agent.idx_to_name = {}
 
-    rounds_path = args.output.parent / "round_metrics.jsonl"
+    rounds_path = output_path.parent / "round_metrics.jsonl"
     for attempt in range(1, args.max_attempts + 1):
         pending = [
-            (index, problem)
-            for index, problem in enumerate(problems)
+            (problem_index, problem)
+            for problem_index, problem in problems
             if (problem["name"], attempt) not in done
         ]
         if not pending:
@@ -206,7 +251,7 @@ def main() -> int:
                 **lean_metrics,
             }
             round_rows.append(row)
-            append_jsonl(args.output, [row])
+            append_jsonl(output_path, [row])
 
             if row["success"] or args.save_failure_traces:
                 trace_path = trace_dir / f"{problem['name']}__a{attempt:02d}.json.gz"

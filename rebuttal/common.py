@@ -31,6 +31,19 @@ def append_jsonl(path: Path, rows: Iterable[dict[str, Any]]) -> None:
         os.fsync(handle.fileno())
 
 
+def atomic_jsonl(path: Path, rows: Iterable[dict[str, Any]]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with tempfile.NamedTemporaryFile(
+        mode="w", encoding="utf-8", dir=path.parent, delete=False
+    ) as handle:
+        for row in rows:
+            handle.write(json.dumps(row, ensure_ascii=False, sort_keys=True) + "\n")
+        handle.flush()
+        os.fsync(handle.fileno())
+        temp_name = handle.name
+    os.replace(temp_name, path)
+
+
 def atomic_json(path: Path, value: Any) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.NamedTemporaryFile(
@@ -58,6 +71,67 @@ def selected_problems(
     problems = [row for row in load_jsonl(dataset) if row.get("split") == split]
     problems.sort(key=lambda row: row["name"])
     return problems[:limit] if limit else problems
+
+
+def validate_shard(num_shards: int, shard_index: int) -> None:
+    if num_shards < 1:
+        raise ValueError("--num-shards must be at least 1")
+    if shard_index < 0 or shard_index >= num_shards:
+        raise ValueError("--shard-index must be in [0, --num-shards)")
+
+
+def indexed_problem_shard(
+    problems: list[dict[str, Any]],
+    num_shards: int,
+    shard_index: int,
+) -> list[tuple[int, dict[str, Any]]]:
+    """Return a deterministic round-robin shard with global problem indices."""
+    validate_shard(num_shards, shard_index)
+    return [
+        (problem_index, problem)
+        for problem_index, problem in enumerate(problems)
+        if problem_index % num_shards == shard_index
+    ]
+
+
+def sharded_output_path(
+    output: Path,
+    num_shards: int,
+    shard_index: int,
+) -> Path:
+    """Place parallel writers in separate directories while preserving filenames."""
+    validate_shard(num_shards, shard_index)
+    if num_shards == 1:
+        return output
+    shard_dir = f"shard-{shard_index:02d}-of-{num_shards:02d}"
+    return output.parent / shard_dir / output.name
+
+
+def validate_resume_manifest(
+    output: Path,
+    metadata: dict[str, Any],
+    stable_fields: Iterable[str],
+) -> None:
+    """Refuse to mix existing result rows with a different experiment."""
+    if not output.exists():
+        return
+    manifest_path = output.parent / "manifest.json"
+    if not manifest_path.is_file():
+        raise ValueError(
+            f"Cannot safely resume {output}: missing {manifest_path}"
+        )
+    with manifest_path.open("r", encoding="utf-8") as handle:
+        previous = json.load(handle)
+    differences = [
+        field
+        for field in stable_fields
+        if previous.get(field) != metadata.get(field)
+    ]
+    if differences:
+        raise ValueError(
+            f"Refusing to mix incompatible results in {output}; changed fields: "
+            + ", ".join(differences)
+        )
 
 
 def completed_attempts(path: Path, method: str) -> set[tuple[str, int]]:
